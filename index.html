@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face&amp;Body Studio — Професійна освіта з масажу</title>
+  <meta name="description" content="Face&amp;Body Studio — дипломні курси масажу, міжнародний сертифікат, допомога у працевлаштуванні." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="bg-ambient" aria-hidden="true">
+  <canvas id="particleCanvas"></canvas>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="ring ring-1"></div>
+  <div class="ring ring-2"></div>
+  <div class="ring ring-3"></div>
+  <div class="ring ring-4"></div>
+  <div class="ring ring-5"></div>
+  <div class="ring ring-6"></div>
+  <div class="ring ring-7"></div>
+  <div class="ring ring-8"></div>
+  <div class="ring ring-9"></div>
+  <div class="ring ring-10"></div>
+  <div class="ring ring-11"></div>
+  <div class="ring ring-12"></div>
+</div>
+
+<!-- ═══ HEADER ════════════════════════════════ -->
+<header id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">Face<em>&amp;</em>Body Studio</a>
+
+    <nav class="nav-desk" aria-label="Головна навігація">
+      <a href="#courses"      class="nav-link">Курси</a>
+      <a href="#schedule"     class="nav-link">Розклад</a>
+      <a href="#why"          class="nav-link">Про нас</a>
+      <a href="#testimonials" class="nav-link">Відгуки</a>
+    </nav>
+
+    <a href="#enroll" class="btn btn-outline btn-sm">Записатися</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Відкрити меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ МОБІЛЬНЕ МЕНЮ ════════════════════════ -->
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Навігаційне меню">
+  <button class="nav-overlay-close" id="navClose" aria-label="Закрити меню">✕</button>
+  <nav class="nav-overlay-links">
+    <a href="#courses">Курси</a>
+    <a href="#schedule">Розклад</a>
+    <a href="#why">Про нас</a>
+    <a href="#testimonials">Відгуки</a>
+    <a href="#enroll" class="btn btn-outline" style="margin-top:.5rem">Записатися</a>
+  </nav>
+</div>
+
+<!-- ═══ ГЕРОЙ ════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-pill">
+      <div class="hero-pill-dot"></div>
+      <span>Професійна освіта з масажу</span>
+    </div>
+
+    <h1 class="hero-hl">
+      <span class="hero-line">
+        <span class="hero-word" style="--delay:0ms">Стань</span>
+        <span class="hero-word" style="--delay:120ms">майстром</span>
+      </span>
+      <span class="hero-line">
+        <span class="hero-word" style="--delay:280ms">своєї</span>
+        <span class="hero-word" style="--delay:400ms">справи.</span>
+      </span>
+    </h1>
+
+    <div class="hero-sub">
+      <p>Дипломні курси масажу та реабілітації.</p>
+      <p>Сертифікат після завершення навчання.</p>
+      <p>Допомога у працевлаштуванні включена.</p>
+    </div>
+
+    <div class="hero-btns">
+      <a href="#courses" class="btn btn-primary">Почати навчання</a>
+      <a href="#courses" class="btn btn-outline">Переглянути курси</a>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-val">000+</span>
+        <span class="stat-lbl">Випускників</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">00+</span>
+        <span class="stat-lbl">Програм</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">00%</span>
+        <span class="stat-lbl">Працевлаштованих</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-img-col">
+    <div class="hero-img img-ph">Фото [1200×900]</div>
+  </div>
+</section>
+
+<!-- ═══ СМУГА ДОВІРИ ══════════════════════════ -->
+<div id="trust">
+  <div class="container">
+    <div class="trust-inner">
+
+      <div class="trust-item reveal" data-delay="0">
+        <span class="trust-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </span>
+        <div class="trust-copy">
+          <strong>Засновано у 0000</strong>
+          <span>Роки досвіду</span>
+        </div>
+      </div>
+
+      <div class="trust-item reveal" data-delay="100">
+        <span class="trust-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </span>
+        <div class="trust-copy">
+          <strong>Міжнародний сертифікат</strong>
+          <span>Визнається у світі</span>
+        </div>
+      </div>
+
+      <div class="trust-item reveal" data-delay="200">
+        <span class="trust-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+          </svg>
+        </span>
+        <div class="trust-copy">
+          <strong>Допомога з роботою</strong>
+          <span>Підтримка кар'єри</span>
+        </div>
+      </div>
+
+      <div class="trust-item reveal" data-delay="300">
+        <span class="trust-ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </span>
+        <div class="trust-copy">
+          <strong>0 000+ випускників</strong>
+          <span>Зростаємо щороку</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ КУРСИ ═════════════════════════════════ -->
+<section id="courses">
+  <div class="container">
+    <div class="section-hdr reveal">
+      <span class="eyebrow">Що ми викладаємо</span>
+      <h2 class="section-title">Обери свій шлях</h2>
+    </div>
+
+    <div class="courses-stage">
+      <button class="c-nav-btn" id="cPrev" aria-label="Попередній курс">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="courses-track-wrap">
+        <div class="courses-track" id="coursesTrack">
+
+          <div class="c-card">
+            <div class="c-thumb">
+              <span class="c-thumb-lbl">Фото [400×280]</span>
+              <span class="c-tag">Хіт продажів</span>
+            </div>
+            <div class="c-body">
+              <h3 class="c-title">Класичний масаж. Базовий курс</h3>
+              <p class="c-desc">Освоїти основи класичного масажу — від анатомії до повноцінного сеансу з клієнтом.</p>
+              <div class="c-meta">
+                <span class="c-meta-item">⏱ 40 год</span>
+                <span class="c-meta-item">💰 0 000 ₴</span>
+              </div>
+              <div class="c-foot">
+                <span class="c-price">0 000 ₴</span>
+                <a href="#enroll" class="c-link">Детальніше →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="c-card">
+            <div class="c-thumb">
+              <span class="c-thumb-lbl">Фото [400×280]</span>
+            </div>
+            <div class="c-body">
+              <h3 class="c-title">Спортивний реабілітаційний масаж</h3>
+              <p class="c-desc">Техніки відновлення після травм, підготовки до змагань та роботи зі спортсменами.</p>
+              <div class="c-meta">
+                <span class="c-meta-item">⏱ 56 год</span>
+                <span class="c-meta-item">💰 0 000 ₴</span>
+              </div>
+              <div class="c-foot">
+                <span class="c-price">0 000 ₴</span>
+                <a href="#enroll" class="c-link">Детальніше →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="c-card">
+            <div class="c-thumb">
+              <span class="c-thumb-lbl">Фото [400×280]</span>
+            </div>
+            <div class="c-body">
+              <h3 class="c-title">Скульптурні техніки обличчя</h3>
+              <p class="c-desc">Ліфтинг, контурування та омолодження вручну — без апаратів і ін'єкцій.</p>
+              <div class="c-meta">
+                <span class="c-meta-item">⏱ 32 год</span>
+                <span class="c-meta-item">💰 0 000 ₴</span>
+              </div>
+              <div class="c-foot">
+                <span class="c-price">0 000 ₴</span>
+                <a href="#enroll" class="c-link">Детальніше →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="c-card">
+            <div class="c-thumb">
+              <span class="c-thumb-lbl">Фото [400×280]</span>
+            </div>
+            <div class="c-body">
+              <h3 class="c-title">Тайський масаж. Занурення</h3>
+              <p class="c-desc">Автентична техніка Нуат Боран — розтяжки, акупресура, робота з енергетичними лініями.</p>
+              <div class="c-meta">
+                <span class="c-meta-item">⏱ 48 год</span>
+                <span class="c-meta-item">💰 0 000 ₴</span>
+              </div>
+              <div class="c-foot">
+                <span class="c-price">0 000 ₴</span>
+                <a href="#enroll" class="c-link">Детальніше →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="c-card">
+            <div class="c-thumb">
+              <span class="c-thumb-lbl">Фото [400×280]</span>
+            </div>
+            <div class="c-body">
+              <h3 class="c-title">Семінар: Тригерні точки</h3>
+              <p class="c-desc">Дводенний інтенсив з діагностики, картографування та вивільнення міофасціальних тригерів.</p>
+              <div class="c-meta">
+                <span class="c-meta-item">⏱ 16 год</span>
+                <span class="c-meta-item">💰 0 000 ₴</span>
+              </div>
+              <div class="c-foot">
+                <span class="c-price">0 000 ₴</span>
+                <a href="#enroll" class="c-link">Детальніше →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="c-card">
+            <div class="c-thumb">
+              <span class="c-thumb-lbl">Фото [400×280]</span>
+              <span class="c-tag new">Онлайн</span>
+            </div>
+            <div class="c-body">
+              <h3 class="c-title">Анатомія для масажистів</h3>
+              <p class="c-desc">Самостійний відеокурс — м'язи, фасції, протипоказання та топографія тіла.</p>
+              <div class="c-meta">
+                <span class="c-meta-item">⏱ 24 год</span>
+                <span class="c-meta-item">💰 0 000 ₴</span>
+              </div>
+              <div class="c-foot">
+                <span class="c-price">0 000 ₴</span>
+                <a href="#enroll" class="c-link">Детальніше →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="c-nav-btn" id="cNext" aria-label="Наступний курс">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ РОЗКЛАД ════════════════════════════════ -->
+<section id="schedule">
+  <div class="container">
+    <div class="section-hdr reveal">
+      <span class="eyebrow">Найближчі старти</span>
+      <h2 class="section-title">Приєднуйся до наступної групи</h2>
+    </div>
+
+    <div class="sch-list">
+
+      <div class="sch-item reveal" data-delay="0">
+        <div class="sch-main">
+          <span class="sch-name">Класичний масаж. Базовий курс</span>
+          <span class="sch-instr">Викладач: Олена В.</span>
+        </div>
+        <span class="sch-time">Пн–Пт · 10:00–14:00</span>
+        <span class="sch-start">Старт: 15.07.РР</span>
+        <span class="sch-arrow">→</span>
+      </div>
+
+      <div class="sch-item reveal" data-delay="60">
+        <div class="sch-main">
+          <span class="sch-name">Спортивний реабілітаційний масаж</span>
+          <span class="sch-instr">Викладач: Ім'я Прізвище</span>
+        </div>
+        <span class="sch-time">Вт–Чт–Сб · 11:00–15:00</span>
+        <span class="sch-start">Старт: 22.07.РР</span>
+        <span class="sch-arrow">→</span>
+      </div>
+
+      <div class="sch-item reveal" data-delay="120">
+        <div class="sch-main">
+          <span class="sch-name">Тайський масаж. Занурення</span>
+          <span class="sch-instr">Викладач: Олена К.</span>
+        </div>
+        <span class="sch-time">Пн–Пт · 09:00–13:00</span>
+        <span class="sch-start">Старт: 05.08.РР</span>
+        <span class="sch-arrow">→</span>
+      </div>
+
+      <div class="sch-item reveal" data-delay="180">
+        <div class="sch-main">
+          <span class="sch-name">Скульптурні техніки обличчя</span>
+          <span class="sch-instr">Викладач: Ім'я Прізвище</span>
+        </div>
+        <span class="sch-time">Вт–Чт · 14:00–18:00</span>
+        <span class="sch-start">Старт: 12.08.РР</span>
+        <span class="sch-arrow">→</span>
+      </div>
+
+      <div class="sch-item reveal" data-delay="240">
+        <div class="sch-main">
+          <span class="sch-name">Семінар: Тригерні точки</span>
+          <span class="sch-instr">Викладач: Ім'я Прізвище</span>
+        </div>
+        <span class="sch-time">Сб–Нд · 10:00–18:00</span>
+        <span class="sch-start">Старт: 26.08.РР</span>
+        <span class="sch-arrow">→</span>
+      </div>
+
+    </div>
+
+    <a href="#enroll" class="sch-cta">Повний розклад →</a>
+  </div>
+</section>
+
+<!-- ═══ ЧОМУ МИ ════════════════════════════════ -->
+<section id="why">
+  <div class="container">
+    <div class="section-hdr reveal">
+      <span class="eyebrow">Чому ми</span>
+      <h2 class="section-title">Не просто курс —<br>це професія.</h2>
+    </div>
+    <div class="why-grid">
+
+      <div class="why-img img-ph reveal">Фото [800×1000]</div>
+
+      <div class="adv-list">
+
+        <div class="adv reveal-r" data-delay="0">
+          <span class="adv-n">01</span>
+          <div>
+            <p class="adv-t">Викладачі-практики</p>
+            <p class="adv-p">Кожен викладач веде активну практику — навчаємо тому, що реально працює в кабінеті.</p>
+          </div>
+        </div>
+
+        <div class="adv reveal-r" data-delay="80">
+          <span class="adv-n">02</span>
+          <div>
+            <p class="adv-t">Малі групи — максимум уваги</p>
+            <p class="adv-p">До 8 студентів у групі. Кожен отримує зворотний зв'язок і розвивається швидше.</p>
+          </div>
+        </div>
+
+        <div class="adv reveal-r" data-delay="160">
+          <span class="adv-n">03</span>
+          <div>
+            <p class="adv-t">Диплом державного зразка</p>
+            <p class="adv-p">Наші сертифікати визнаються SPA-центрами, клініками та медичними закладами.</p>
+          </div>
+        </div>
+
+        <div class="adv reveal-r" data-delay="240">
+          <span class="adv-n">04</span>
+          <div>
+            <p class="adv-t">Мережа партнерів-роботодавців</p>
+            <p class="adv-p">Пряма співпраця з роботодавцями — випускники отримують рекомендації протягом 30 днів.</p>
+          </div>
+        </div>
+
+        <div class="adv reveal-r" data-delay="320">
+          <span class="adv-n">05</span>
+          <div>
+            <p class="adv-t">Розстрочка без переплат</p>
+            <p class="adv-p">Розбий оплату на частини без відсотків — освіта має бути доступною, а не стресовою.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ВІДГУКИ ════════════════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-hdr reveal">
+      <span class="eyebrow">Відгуки</span>
+      <h2 class="section-title">Що кажуть наші студенти</h2>
+    </div>
+
+    <div class="testi-grid">
+
+      <div class="testi-card reveal" data-delay="0">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">«Прийшла без досвіду — пішла з дипломом і першим клієнтом. Викладачі дійсно вболівають за твій результат.»</p>
+        <p class="testi-auth">— <strong>Ім'я Прізвище</strong>, Класичний масаж</p>
+      </div>
+
+      <div class="testi-card reveal" data-delay="80">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">«Курс спортивного масажу повністю змінив мою кар'єру. Вже за місяць я працював зі спортивною командою.»</p>
+        <p class="testi-auth">— <strong>Ім'я Прізвище</strong>, Спортивний масаж</p>
+      </div>
+
+      <div class="testi-card reveal" data-delay="160">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">«Мала група — це справжній плюс. Не загубилась у потоці, отримала зворотний зв'язок на кожному занятті.»</p>
+        <p class="testi-auth">— <strong>Ім'я Прізвище</strong>, Анатомія онлайн</p>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ФОРМА ЗАПИСУ ════════════════════════════ -->
+<section id="enroll">
+  <div class="container">
+    <div class="enroll-grid">
+
+      <div class="enroll-info reveal">
+        <span class="eyebrow">Записатися</span>
+        <h2 class="section-title">Готовий змінити<br>своє життя?</h2>
+        <p class="enroll-text">Перша консультація безкоштовна. Залиш заявку — зателефонуємо протягом одного робочого дня та допоможемо обрати відповідний курс.</p>
+        <div class="enroll-contacts">
+          <a href="tel:+380000000000" class="enroll-contact-link">
+            <span class="enroll-contact-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            <span>+00 (000) 000-00-00</span>
+          </a>
+          <a href="mailto:hello@akademia.placeholder" class="enroll-contact-link">
+            <span class="enroll-contact-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </span>
+            <span>hello@akademia.placeholder</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="enroll-form-wrap reveal" data-delay="150">
+        <form class="enroll-form" id="enrollForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="f-name">Ім'я *</label>
+              <input class="form-input" id="f-name" name="name" type="text" placeholder="Як до вас звертатися?" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="f-phone">Телефон *</label>
+              <input class="form-input" id="f-phone" name="phone" type="tel" placeholder="+38 (0__) ___-__-__" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-email">Email</label>
+            <input class="form-input" id="f-email" name="email" type="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-course">Курс, що цікавить</label>
+            <div class="form-select-wrap">
+              <select class="form-input form-select" id="f-course" name="course">
+                <option value="" disabled selected>Оберіть курс...</option>
+                <option>Класичний масаж. Базовий курс</option>
+                <option>Спортивний реабілітаційний масаж</option>
+                <option>Скульптурні техніки обличчя</option>
+                <option>Тайський масаж. Занурення</option>
+                <option>Семінар: Тригерні точки</option>
+                <option>Анатомія для масажистів (онлайн)</option>
+                <option>Інше / консультація</option>
+              </select>
+              <span class="form-select-arrow">▾</span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-msg">Коментар</label>
+            <textarea class="form-input form-textarea" id="f-msg" name="message" placeholder="Запитання, побажання, зручний час для дзвінка..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg form-submit">
+            Надіслати заявку
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <p class="form-note">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ФУТЕР ══════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <div>
+        <span class="foot-logo">Face<em>&amp;</em>Body Studio</span>
+        <p class="foot-desc">Школа масажу, яка перетворює захоплення на справжню професію. Дипломні курси, мала група, реальна практика.</p>
+        <div class="social-row">
+          <a href="#" class="soc-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" class="soc-link" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42C1 8.15 1 12 1 12s0 3.85.46 5.58a2.78 2.78 0 0 0 1.94 1.96C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96C23 15.85 23 12 23 12s0-3.85-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="foot-col-label">Навігація</p>
+        <ul class="foot-links">
+          <li><a href="#courses">Курси</a></li>
+          <li><a href="#schedule">Розклад</a></li>
+          <li><a href="#why">Про нас</a></li>
+          <li><a href="#testimonials">Відгуки</a></li>
+          <li><a href="#enroll">Записатися</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="foot-col-label">Контакти</p>
+        <div class="contact-row">
+          <span class="contact-label">Адреса</span>
+          <span class="contact-val">Місто, вул. Назва, 00</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Телефон</span>
+          <span class="contact-val">+00 (000) 000-00-00</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Пошта</span>
+          <span class="contact-val">hello@akademia.placeholder</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p class="foot-copy">© 0000 Face&amp;Body Studio. Всі права захищені.</p>
+      <span class="foot-lang">UA / EN</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ ТОСТ-ПОВІДОМЛЕННЯ ══════════════════════ -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <div class="toast-inner">
+    <div class="toast-icon">✓</div>
+    <div class="toast-body">
+      <p class="toast-title">Заявку отримано!</p>
+      <p class="toast-text">Ми зателефонуємо вам найближчим часом. Дякуємо за довіру!</p>
+    </div>
+    <button class="toast-close" id="toastClose" aria-label="Закрити">✕</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
