@@ -532,6 +532,11 @@ html { overflow-x: hidden; }
   /* why */
   .adv-t, .adv-p { text-align: left; }
 
+  /* courses cards */
+  .c-card  { text-align: center; }
+  .c-meta  { justify-content: center; }
+  .c-foot  { justify-content: center; gap: 2rem; }
+
   /* testimonials */
   .testi-card  { text-align: center; }
   .testi-auth  { text-align: center; }
