@@ -618,14 +618,16 @@ html { overflow-x: hidden; }
 
   /* — courses — */
   #courses .container { padding: 0 1.25rem; }
-  .courses-stage  { gap: .5rem; margin-top: 1.75rem; }
-  .c-nav-btn      { width: 38px; height: 38px; flex-shrink: 0; }
-  /* card fits inside track: vw − container-padding×2 − btn×2 − gap×2 */
-  .c-card         { flex: 0 0 calc(100vw - 7.5rem); }
-  .c-thumb        { height: 160px; }
-  .c-body         { padding: 1.1rem; }
-  .c-title        { font-size: 1.2rem; }
-  .c-desc         { -webkit-line-clamp: 2; }
+  .courses-stage      { gap: .5rem; margin-top: 1.75rem; }
+  .c-nav-btn          { width: 38px; height: 38px; flex-shrink: 0; }
+  /* track-wrap отримує flex:1; картка = вся ширина треку мінус 1rem відступ */
+  .courses-track-wrap { padding: 0; margin: 0; }
+  .c-card             { flex: 0 0 calc(100% - 1rem); }
+  .c-card.c-active    { transform: none; }
+  .c-thumb            { height: 160px; }
+  .c-body             { padding: 1.1rem; }
+  .c-title            { font-size: 1.2rem; }
+  .c-desc             { -webkit-line-clamp: 2; }
 
   /* — schedule — */
   .sch-item  { flex-wrap: wrap; gap: .5rem; padding: .9rem .5rem; }
@@ -688,7 +690,7 @@ html { overflow-x: hidden; }
 
   /* — courses — */
   .c-nav-btn { width: 34px; height: 34px; }
-  .c-card    { flex: 0 0 calc(100vw - 7rem); }
+  .c-card    { flex: 0 0 calc(100% - 0.5rem); }
 
   /* — form — */
   .form-row         { grid-template-columns: 1fr; }
