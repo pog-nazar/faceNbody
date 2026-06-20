@@ -58,7 +58,7 @@ document.querySelectorAll('.reveal, .reveal-r, .section-hdr').forEach(el => reve
     const leftIdx = pv === 3 ? center - 1 : center;
     const cardW   = cCards[0].offsetWidth;
     const gap     = parseFloat(getComputedStyle(track).columnGap) || 32;
-    track.style.transform = `translateX(-${leftIdx * (cardW + gap)}px)`;
+    track.style.transform = `translateX(${-(leftIdx * (cardW + gap))}px)`;
 
     cCards.forEach((card, i) => {
       card.classList.remove('c-active', 'c-side');
