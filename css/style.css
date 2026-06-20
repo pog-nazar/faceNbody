@@ -572,11 +572,16 @@ html { overflow-x: hidden; }
 
   /* hero */
   .hero-content  { text-align: center; }
-  .hero-pill     { margin-left: auto; margin-right: auto; }
-  .hero-btns     { justify-content: center; }
-  .hero-sub      { margin-left: auto; margin-right: auto; }
+  .hero-pill     { margin-left: auto; margin-right: auto; flex-wrap: wrap; justify-content: center; }
+  .hero-btns     { justify-content: center; flex-wrap: wrap; }
+  .hero-sub      { margin-left: auto; margin-right: auto; max-width: 100%; }
   .stats-row     { justify-content: center; }
-  .hero-salary   { justify-content: center; text-align: center; }
+  .hero-salary   {
+    justify-content: center; text-align: center;
+    border-left: none;
+    border-top: 4px solid var(--accent);
+    border-radius: var(--r-sm);
+  }
   .hero-check    { justify-content: center; }
 
   /* trust */
@@ -636,7 +641,7 @@ html { overflow-x: hidden; }
   #courses, #schedule, #why, #testimonials, #enroll { padding: 4rem 0; }
 
   /* — section headers — */
-  .section-title { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+  .section-title { font-size: clamp(2rem, 7vw, 2.8rem); }
 
   /* — hero — */
   #hero {
@@ -645,24 +650,27 @@ html { overflow-x: hidden; }
     padding: 80px 1.25rem 40px;
     min-height: auto;
   }
-  .hero-img-col { order: -1; }
-  .hero-img     { height: 200px; min-height: unset; }
-  .hero-hl      { font-size: clamp(2.2rem, 9vw, 3.5rem); margin-bottom: 1.25rem; }
-  .hero-sub     { font-size: 14px; margin-bottom: 1.5rem; }
-  .hero-btns    { gap: .75rem; margin-bottom: 1.75rem; }
-  .hero-pill    { margin-bottom: 1.25rem; }
+  .hero-img-col    { order: -1; }
+  .hero-img        { height: 200px; min-height: unset; }
+  .hero-hl         { font-size: clamp(2.2rem, 9vw, 3.5rem); margin-bottom: 1.25rem; }
+  .hero-sub        { font-size: 15px; margin-bottom: 1.5rem; }
+  .hero-btns       { gap: .75rem; margin-bottom: 1.75rem; }
+  .hero-pill       { margin-bottom: 1.25rem; }
+  .hero-salary     { padding: .85rem 1rem; margin-bottom: 1.25rem; }
+  .hero-salary-val { font-size: 1.5rem; white-space: normal; }
+  .hero-salary-lbl { font-size: 13px; }
 
   /* — stats — */
   .stats-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: .75rem;
+    gap: .75rem 1rem;
     padding-top: 1.25rem;
     border-top: 1px solid var(--border);
   }
   .stat-item + .stat-item { border-left: none; padding-left: 0; }
-  .stat-val { font-size: 1.5rem; }
-  .stat-lbl { font-size: 10px; }
+  .stat-val { font-size: 1.6rem; }
+  .stat-lbl { font-size: 11px; }
 
   /* — trust — */
   .trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -680,8 +688,11 @@ html { overflow-x: hidden; }
   .c-card.c-active    { transform: none; }
   .c-thumb            { height: 160px; }
   .c-body             { padding: 1.1rem; }
-  .c-title            { font-size: 1.2rem; }
-  .c-desc             { -webkit-line-clamp: 2; }
+  .c-title            { font-size: 1.25rem; }
+  .c-desc             { font-size: 14px; -webkit-line-clamp: 2; }
+  .c-meta-item        { font-size: 13px; }
+  .c-price            { font-size: 1.3rem; }
+  .c-link             { font-size: 13px; }
 
   /* — schedule — */
   .sch-item  { flex-wrap: wrap; gap: .5rem; padding: .9rem .5rem; }
@@ -702,13 +713,19 @@ html { overflow-x: hidden; }
   .testi-text { font-size: 14px; }
 
   /* — enroll — */
-  .enroll-grid      { grid-template-columns: 1fr; gap: 2rem; }
-  .enroll-text      { font-size: 14px; margin-top: 1rem; margin-bottom: 1.5rem; }
-  .enroll-form-wrap { padding: 1.5rem; }
+  .enroll-grid          { grid-template-columns: 1fr; gap: 2rem; }
+  .enroll-text          { font-size: 15px; margin-top: 1rem; margin-bottom: 1.5rem; max-width: 100%; }
+  .enroll-form-wrap     { padding: 1.5rem; }
+  .enroll-contact-link  { font-size: 14px; }
+  .form-input           { font-size: 16px; padding: 13px 14px; }
+  .form-label           { font-size: 11px; }
 
   /* — footer — */
-  .foot-grid { grid-template-columns: 1fr; gap: 1.75rem; }
-  .foot-desc { max-width: 100%; }
+  .foot-grid   { grid-template-columns: 1fr; gap: 1.75rem; }
+  .foot-desc   { max-width: 100%; }
+  .foot-links a      { font-size: 14px; }
+  .contact-val       { font-size: 15px; }
+  .foot-col-label    { font-size: 11px; }
 
   /* — rings (scale down) — */
   .ring { border-color: rgba(49,130,206,.15); }
@@ -731,12 +748,18 @@ html { overflow-x: hidden; }
   #courses, #schedule, #why, #testimonials, #enroll { padding: 3rem 0; }
 
   /* — hero — */
-  #hero     { padding: 72px 1rem 36px; gap: 1.25rem; }
-  .hero-img { height: 170px; }
-  .hero-hl  { font-size: clamp(2rem, 8.5vw, 3rem); }
-  .hero-btns { flex-direction: column; }
-  .hero-btns .btn { width: 100%; justify-content: center; }
-  .hero-pill span { font-size: 10px; letter-spacing: .05em; }
+  #hero            { padding: 72px 1rem 36px; gap: 1.25rem; }
+  .hero-img        { height: 170px; }
+  .hero-hl         { font-size: clamp(2rem, 8.5vw, 3rem); }
+  .hero-btns       { flex-direction: column; }
+  .hero-btns .btn  { width: 100%; justify-content: center; }
+  .hero-pill span  { font-size: 10px; letter-spacing: .05em; }
+  .hero-salary     { padding: .65rem .85rem; margin-bottom: 1rem; }
+  .hero-salary-val { font-size: 1.3rem; }
+  .hero-salary-lbl { font-size: 12px; }
+  .hero-sub        { font-size: 14px; }
+  .stat-val        { font-size: 1.4rem; }
+  .stat-lbl        { font-size: 10px; }
 
   /* — trust — */
   .trust-inner { grid-template-columns: 1fr; gap: .85rem; }
@@ -745,14 +768,33 @@ html { overflow-x: hidden; }
   /* — courses — */
   .c-nav-btn { width: 34px; height: 34px; }
   .c-card    { flex: 0 0 calc(100% - 0.5rem); }
+  .c-title   { font-size: 1.15rem; }
+  .c-body    { padding: 1rem; }
+
+  /* — schedule — */
+  .sch-name  { font-size: 13px; }
+  .sch-time, .sch-start { font-size: 11px; }
+  .sch-item  { padding: .75rem .25rem; }
+
+  /* — why — */
+  .adv-n { font-size: 30px; min-width: 28px; }
+  .adv-t { font-size: 13px; }
+  .adv-p { font-size: 12px; }
+
+  /* — testimonials — */
+  .testi-text { font-size: 13px; }
 
   /* — form — */
   .form-row         { grid-template-columns: 1fr; }
   .enroll-form-wrap { padding: 1.25rem; }
   .enroll-contacts  { gap: .75rem; }
+  .form-input       { font-size: 15px; padding: 12px 13px; }
 
   /* — footer — */
-  .foot-bottom { flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .foot-bottom  { flex-direction: column; align-items: center; gap: .4rem; }
+  .foot-desc    { font-size: 13px; }
+  .foot-links a { font-size: 13px; }
+  .contact-val  { font-size: 14px; }
 
   /* — rings (minimal) — */
   .ring-1  { width: 220px; height: 220px; }
@@ -762,6 +804,22 @@ html { overflow-x: hidden; }
   .ring-2, .ring-6, .ring-12 { display: none; }
   .orb-1   { width: 220px; height: 220px; }
   .orb-2   { width: 180px; height: 180px; }
+}
+
+/* ── Tiny mobile 360px ─────────────────── */
+@media (max-width: 360px) {
+  .container      { padding: 0 .9rem; }
+  #hero           { padding: 68px .9rem 32px; }
+  .hero-hl        { font-size: clamp(1.75rem, 9vw, 2.5rem); }
+  .hero-salary-val { font-size: 1.15rem; }
+  .hero-pill span { font-size: 9px; }
+  .stats-row      { gap: .5rem; }
+  .stat-val       { font-size: 1.25rem; }
+  .adv-n          { display: none; }
+  .testi-card     { padding: 1.25rem; }
+  .section-title  { font-size: clamp(1.75rem, 8vw, 2.2rem); }
+  .c-nav-btn      { width: 30px; height: 30px; }
+  .courses-stage  { gap: .35rem; }
 }
 
 /* ══════════════════════════════════════════
