@@ -47,7 +47,7 @@ document.querySelectorAll('.reveal, .reveal-r, .section-hdr').forEach(el => reve
 
   const cCards = Array.from(track.querySelectorAll('.c-card'));
   const total  = cCards.length;
-  let center   = 1;
+  let center   = 0;
 
   function perView() { return window.innerWidth >= 768 ? 3 : 1; }
   function minIdx()  { return 0; }
