@@ -269,8 +269,60 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 @keyframes wordIn { to { opacity: 1; transform: translateY(0); } }
 
-.hero-sub { font-size: 17px; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; max-width: 400px; }
-.hero-sub p { margin-bottom: .15rem; }
+.hero-word-accent { color: var(--accent); font-style: normal; }
+
+.hero-salary {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .6rem 1rem;
+  background: linear-gradient(135deg, rgba(49,130,206,.08) 0%, rgba(49,130,206,.04) 100%);
+  border: 1px solid rgba(49,130,206,.22);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.hero-salary-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  white-space: nowrap;
+}
+.hero-salary-curr {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.hero-salary-lbl {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.hero-sub { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; max-width: 400px; }
+.hero-sub p { margin-bottom: .2rem; }
+
+.hero-check {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+}
+.hero-check::before {
+  content: '✓';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  background: var(--accent);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  margin-top: 3px;
+}
 .hero-btns { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
 
 .stats-row {
@@ -519,11 +571,13 @@ html { overflow-x: hidden; }
   .section-hdr::after { margin-left: auto; margin-right: auto; }
 
   /* hero */
-  .hero-content { text-align: center; }
-  .hero-pill    { margin-left: auto; margin-right: auto; }
-  .hero-btns    { justify-content: center; }
-  .hero-sub     { margin-left: auto; margin-right: auto; }
-  .stats-row    { justify-content: center; }
+  .hero-content  { text-align: center; }
+  .hero-pill     { margin-left: auto; margin-right: auto; }
+  .hero-btns     { justify-content: center; }
+  .hero-sub      { margin-left: auto; margin-right: auto; }
+  .stats-row     { justify-content: center; }
+  .hero-salary   { justify-content: center; text-align: center; }
+  .hero-check    { justify-content: center; }
 
   /* trust */
   .trust-item  { justify-content: center; }
