@@ -31,8 +31,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 /* ── TYPOGRAPHY HELPERS ─────────────────── */
 .eyebrow {
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent);
@@ -41,10 +41,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 300;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 500;
   font-style: italic;
-  line-height: 1.15;
+  line-height: 1.12;
   color: var(--text);
 }
 
@@ -53,10 +53,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 28px;
+  padding: 16px 34px;
   border-radius: var(--r-sm);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   letter-spacing: 0.03em;
   transition: all .25s ease;
   cursor: pointer;
@@ -75,8 +75,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .btn-dark:hover { background: #2D3748; transform: translateY(-1px); }
 .btn-dark:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
 
-.btn-sm  { padding: 10px 20px; font-size: 13px; }
-.btn-lg  { padding: 18px 36px; font-size: 15px; }
+.btn-sm  { padding: 11px 22px; font-size: 14px; }
+.btn-lg  { padding: 20px 42px; font-size: 17px; }
 
 /* ── IMAGE PLACEHOLDER ───────────────────── */
 .img-ph {
@@ -152,8 +152,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 .logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: 600;
   letter-spacing: .06em;
   color: var(--text);
   flex-shrink: 0;
@@ -163,8 +163,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .nav-desk { display: flex; align-items: center; gap: 2rem; margin: 0 auto; }
 
 .nav-link {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -247,12 +247,12 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   margin-bottom: 2rem;
 }
 .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-.hero-pill span { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.hero-pill span { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 
 .hero-hl {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.8rem, 7vw, 6rem);
-  font-weight: 300;
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  font-weight: 500;
   font-style: italic;
   line-height: 1.05;
   color: var(--text);
@@ -285,24 +285,24 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .hero-salary-val {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: var(--accent);
   line-height: 1;
   white-space: nowrap;
 }
 .hero-salary-curr {
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 .hero-salary-lbl {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.4;
 }
 
-.hero-sub { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; max-width: 400px; }
-.hero-sub p { margin-bottom: .2rem; }
+.hero-sub { font-size: 18px; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; max-width: 440px; }
+.hero-sub p { margin-bottom: .35rem; }
 
 .hero-check {
   display: flex;
@@ -333,10 +333,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .stat-val {
   display: block;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem; font-weight: 400;
+  font-size: 2.6rem; font-weight: 600;
   color: var(--accent); line-height: 1;
 }
-.stat-lbl { display: block; font-size: 11px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+.stat-lbl { display: block; font-size: 13px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-top: 5px; }
 .stat-item + .stat-item { padding-left: 2.5rem; border-left: 1px solid var(--border); }
 
 .hero-img-col { position: relative; z-index: 1; }
@@ -356,8 +356,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .trust-item + .trust-item { border-left: 1px solid rgba(49,130,206,.2); padding-left: 1rem; }
 .trust-ico { color: var(--accent); opacity: .85; flex-shrink: 0; }
 .trust-ico svg { display: block; }
-.trust-copy strong { display: block; font-size: 13px; font-weight: 500; color: var(--text); }
-.trust-copy span   { font-size: 12px; color: var(--muted); }
+.trust-copy strong { display: block; font-size: 15px; font-weight: 700; color: var(--text); }
+.trust-copy span   { font-size: 13px; color: var(--muted); }
 
 /* ══════════════════════════════════════════
    4. COURSES
@@ -424,22 +424,22 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .c-body { padding: 2rem; display: flex; flex-direction: column; flex: 1; }
 .c-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem; font-weight: 400;
-  color: var(--text); margin-bottom: .6rem; line-height: 1.3;
+  font-size: 1.75rem; font-weight: 600;
+  color: var(--text); margin-bottom: .6rem; line-height: 1.25;
 }
 .c-desc {
-  font-size: 14px; color: var(--muted); line-height: 1.7;
+  font-size: 15px; color: var(--muted); line-height: 1.7;
   margin-bottom: 1.5rem; flex: 1;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 .c-meta { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
-.c-meta-item { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+.c-meta-item { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
 .c-foot {
   display: flex; justify-content: space-between; align-items: center;
   padding-top: 1.5rem; border-top: 1px solid var(--border);
 }
-.c-price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--accent); }
-.c-link { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; transition: color .2s; }
+.c-price { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--accent); }
+.c-link { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 6px; transition: color .2s; }
 .c-link:hover { color: var(--accent); }
 
 /* ══════════════════════════════════════════
@@ -460,10 +460,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .sch-item:hover { border-left-color: var(--accent); background: rgba(49,130,206,.025); }
 
 .sch-main  { flex: 1; min-width: 0; }
-.sch-name  { display: block; font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-.sch-instr { font-size: 13px; color: var(--muted); }
-.sch-time  { font-size: 13px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-.sch-start { font-size: 13px; color: var(--accent); white-space: nowrap; flex-shrink: 0; }
+.sch-name  { display: block; font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.sch-instr { font-size: 14px; color: var(--muted); }
+.sch-time  { font-size: 14px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+.sch-start { font-size: 14px; color: var(--accent); white-space: nowrap; flex-shrink: 0; font-weight: 600; }
 .sch-arrow { color: var(--muted); font-size: 18px; flex-shrink: 0; transition: transform .2s, color .2s; }
 .sch-item:hover .sch-arrow { transform: translateX(4px); color: var(--accent); }
 
@@ -488,12 +488,12 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .adv:first-child { border-top: 1px solid var(--border); }
 .adv-n {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 52px; font-weight: 300;
-  color: var(--accent); opacity: .3;
-  line-height: 1; flex-shrink: 0; min-width: 48px; text-align: center;
+  font-size: 64px; font-weight: 400;
+  color: var(--accent); opacity: .25;
+  line-height: 1; flex-shrink: 0; min-width: 56px; text-align: center;
 }
-.adv-t { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: .35rem; }
-.adv-p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+.adv-t { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+.adv-p { font-size: 15px; color: var(--muted); line-height: 1.7; }
 
 /* ══════════════════════════════════════════
    7. TESTIMONIALS
@@ -510,10 +510,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   transition: border-color .3s, transform .3s;
 }
 .testi-card:hover { border-color: rgba(49,130,206,.3); transform: translateY(-2px); }
-.testi-stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; margin-bottom: 1.25rem; }
-.testi-text  { font-size: 15px; color: var(--text); line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
-.testi-auth  { font-size: 13px; color: var(--muted); }
-.testi-auth strong { color: var(--text); font-weight: 500; }
+.testi-stars { color: var(--accent); font-size: 16px; letter-spacing: 2px; margin-bottom: 1.25rem; }
+.testi-text  { font-size: 17px; color: var(--text); line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+.testi-auth  { font-size: 14px; color: var(--muted); }
+.testi-auth strong { color: var(--text); font-weight: 600; }
 
 /* ══════════════════════════════════════════
    9. FOOTER
@@ -531,7 +531,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   color: var(--text); display: block; margin-bottom: 1rem;
 }
 .foot-logo em { font-style: normal; color: var(--accent); }
-.foot-desc { font-size: 13px; color: var(--muted); line-height: 1.7; max-width: 260px; margin-bottom: 1.5rem; }
+.foot-desc { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 280px; margin-bottom: 1.5rem; }
 
 .social-row { display: flex; gap: 10px; }
 .soc-link {
@@ -542,14 +542,14 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .soc-link:hover { border-color: var(--accent); color: var(--accent); }
 
-.foot-col-label { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
+.foot-col-label { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
 .foot-links { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
-.foot-links a { font-size: 14px; color: var(--muted); transition: color .2s; }
+.foot-links a { font-size: 15px; color: var(--muted); transition: color .2s; }
 .foot-links a:hover { color: var(--accent); }
 
 .contact-row { display: flex; flex-direction: column; gap: .25rem; margin-bottom: 1rem; }
-.contact-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.contact-val   { font-size: 14px; color: var(--text); }
+.contact-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.contact-val   { font-size: 16px; color: var(--text); font-weight: 500; }
 
 .foot-bottom {
   display: flex; justify-content: space-between; align-items: center;
@@ -792,12 +792,12 @@ html { overflow-x: hidden; }
 }
 
 .enroll-text {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--muted);
-  line-height: 1.75;
+  line-height: 1.8;
   margin-top: 1.75rem;
   margin-bottom: 2.5rem;
-  max-width: 340px;
+  max-width: 360px;
 }
 
 .enroll-contacts { display: flex; flex-direction: column; gap: 1rem; }
@@ -838,7 +838,7 @@ html { overflow-x: hidden; }
 }
 
 .form-label {
-  font-size: 11px; font-weight: 600;
+  font-size: 12px; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   color: var(--muted);
 }
@@ -849,8 +849,8 @@ html { overflow-x: hidden; }
   border-radius: var(--r-sm);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  padding: 12px 14px;
+  font-size: 16px;
+  padding: 14px 16px;
   width: 100%;
   transition: border-color .2s, box-shadow .2s;
   outline: none;
