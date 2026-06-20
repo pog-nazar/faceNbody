@@ -138,7 +138,7 @@ if (enrollForm) {
       r:  Math.random() * 1.3 + 0.3,
       vy: -(Math.random() * 0.38 + 0.14),
       vx: (Math.random() - 0.5) * 0.22,
-      a:  Math.random() * 0.28 + 0.07,
+      a:  Math.random() * 0.10 + 0.03,
     };
   }
 
@@ -153,7 +153,7 @@ if (enrollForm) {
       if (p.y < -8) Object.assign(p, mkPt(false));
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(200,169,110,${p.a})`;
+      ctx.fillStyle = `rgba(49,130,206,${p.a})`;
       ctx.fill();
     }
     requestAnimationFrame(tick);
