@@ -54,9 +54,11 @@ document.querySelectorAll('.reveal, .reveal-r, .section-hdr').forEach(el => reve
   function maxIdx()  { return total - 1; }
 
   function update() {
-    const pv = perView();
-    const leftIdx = pv === 3 ? Math.max(0, center - 1) : center;
-    track.style.transform = `translateX(-${cCards[leftIdx].offsetLeft}px)`;
+    const pv      = perView();
+    const leftIdx = pv === 3 ? center - 1 : center;
+    const cardW   = cCards[0].offsetWidth;
+    const gap     = parseFloat(getComputedStyle(track).columnGap) || 32;
+    track.style.transform = `translateX(-${leftIdx * (cardW + gap)}px)`;
 
     cCards.forEach((card, i) => {
       card.classList.remove('c-active', 'c-side');
