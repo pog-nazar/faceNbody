@@ -429,9 +429,25 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .c-desc {
   font-size: 15px; color: var(--muted); line-height: 1.7;
-  margin-bottom: 1.5rem; flex: 1;
+  margin-bottom: .6rem; flex: 1;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
+.c-desc.c-desc-expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.c-expand {
+  display: block;
+  background: none; border: none; cursor: pointer;
+  font-size: 13px; font-weight: 600;
+  color: var(--accent);
+  padding: 0; margin-bottom: .9rem;
+  transition: color .2s;
+  text-align: center; width: 100%;
+}
+.c-expand:hover { color: var(--accent-dim); }
+.c-expand.hidden { display: none; margin-bottom: 0; }
 .c-meta { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
 .c-meta-item { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
 .c-foot {
@@ -578,7 +594,7 @@ html { overflow-x: hidden; }
   .stats-row     { justify-content: center; }
   .hero-salary   {
     justify-content: center; text-align: center;
-    border-left: none;
+    border-left: 1px solid rgba(49,130,206,.22);
     border-top: 4px solid var(--accent);
     border-radius: var(--r-sm);
   }
@@ -636,6 +652,7 @@ html { overflow-x: hidden; }
   .nav-desk { display: none; }
   .header-inner > .btn { display: none; }
   .hamburger { display: flex; }
+  .logo { font-size: 16px; letter-spacing: .02em; }
 
   /* — section padding — */
   #courses, #schedule, #why, #testimonials, #enroll { padding: 4rem 0; }
@@ -674,7 +691,7 @@ html { overflow-x: hidden; }
 
   /* — trust — */
   .trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .trust-item  { justify-content: flex-start; }
+  .trust-item  { justify-content: center; }
   .trust-item + .trust-item { border-left: none; padding-left: 0; }
   .trust-item:nth-child(odd) { border-right: 1px solid rgba(49,130,206,.2); padding-right: .75rem; }
 
@@ -689,7 +706,7 @@ html { overflow-x: hidden; }
   .c-thumb            { height: 160px; }
   .c-body             { padding: 1.1rem; }
   .c-title            { font-size: 1.25rem; }
-  .c-desc             { font-size: 14px; -webkit-line-clamp: 2; }
+  .c-desc             { font-size: 14px; -webkit-line-clamp: 2; margin-bottom: .4rem; }
   .c-meta-item        { font-size: 13px; }
   .c-price            { font-size: 1.3rem; }
   .c-link             { font-size: 13px; }

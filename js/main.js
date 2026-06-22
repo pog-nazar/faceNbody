@@ -163,6 +163,34 @@ if (enrollForm) {
   tick();
 }());
 
+/* ── CARD EXPAND ────────────────────────── */
+(function () {
+  document.querySelectorAll('.c-desc').forEach(desc => {
+    const btn = document.createElement('button');
+    btn.className = 'c-expand hidden';
+    btn.textContent = 'Читати більше ↓';
+    desc.after(btn);
+
+    btn.addEventListener('click', () => {
+      const expanded = desc.classList.toggle('c-desc-expanded');
+      btn.textContent = expanded ? 'Згорнути ↑' : 'Читати більше ↓';
+    });
+  });
+
+  function checkExpand() {
+    document.querySelectorAll('.c-desc').forEach(desc => {
+      const btn = desc.nextElementSibling;
+      if (!btn || !btn.classList.contains('c-expand')) return;
+      if (desc.classList.contains('c-desc-expanded')) return;
+      btn.classList.toggle('hidden', desc.scrollHeight <= desc.clientHeight + 2);
+    });
+  }
+
+  window.addEventListener('load', checkExpand);
+  window.addEventListener('resize', checkExpand);
+  setTimeout(checkExpand, 150);
+}());
+
 /* ── REDUCED MOTION ──────────────────────── */
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('.hero-word').forEach(w => {
