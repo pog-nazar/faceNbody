@@ -153,10 +153,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .header-inner { display: flex; align-items: center; gap: 2rem; }
 
 .logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: .06em;
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.005em;
   color: var(--text);
   flex-shrink: 0;
 }
@@ -212,10 +212,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .nav-overlay.open { opacity: 1; visibility: visible; pointer-events: all; transition-delay: 0s; }
 .nav-overlay-links { display: flex; flex-direction: column; align-items: center; gap: 2rem; margin: auto 0; }
 .nav-overlay-links a {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 8vw, 2.5rem);
-  line-height: 1.15;
-  font-style: italic;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 7vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.2;
   color: var(--text);
   transition: color .2s;
 }
@@ -476,7 +476,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   margin-top: auto;
   padding-top: 1.5rem; border-top: 1px solid var(--border);
 }
-.c-price { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--accent); }
+.c-price { font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--accent); }
 .c-link { font-size: 16px; color: var(--muted); display: flex; align-items: center; gap: 6px; transition: color .2s; }
 .c-link:hover { color: var(--accent); }
 
@@ -529,8 +529,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .adv:first-child { border-top: 1px solid var(--border); }
 .adv-n {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 64px; font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-size: 52px; font-weight: 900;
   color: var(--accent); opacity: .25;
   line-height: 1; flex: 0 0 68px; text-align: center;
 }
@@ -567,9 +567,9 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   padding-bottom: 2rem; border-bottom: 1px solid var(--border);
 }
 .foot-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 21px; font-weight: 400;
-  letter-spacing: .06em;
+  font-family: 'Inter', sans-serif;
+  font-size: 19px; font-weight: 800;
+  letter-spacing: -.005em;
   color: var(--text); display: block; margin-bottom: 1rem;
 }
 .foot-logo em { font-style: normal; color: var(--accent); }
@@ -600,6 +600,29 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .foot-copy { font-size: 14px; color: var(--muted); }
 .foot-lang { font-size: 14px; color: var(--muted); letter-spacing: .08em; }
 
+/* ── CENTERED SECTION CONTENT (all widths) ──
+   Grid/feed-style sections read best centered at every width. Hero and
+   enroll stay left-aligned on desktop — they pair text with an image/form
+   in a two-column split, where centering the text column would look
+   lopsided against its neighbor. */
+.trust-copy  { text-align: center; }
+
+.c-card  { text-align: center; }
+.c-meta  { justify-content: center; }
+.c-foot  { justify-content: center; gap: 2rem; }
+
+.testi-card  { text-align: center; }
+.testi-auth  { text-align: center; }
+
+.foot-grid > div { text-align: center; }
+.foot-desc   { margin: 0 auto 1.5rem; }
+.social-row  { justify-content: center; }
+.foot-bottom { justify-content: center; text-align: center; }
+.foot-links  { align-items: center; }
+.contact-row { align-items: center; }
+
+.sch-cta { display: flex; justify-content: center; margin-left: auto; margin-right: auto; }
+
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
@@ -622,21 +645,8 @@ html { overflow-x: hidden; }
   }
   .hero-salary-val { white-space: normal; font-size: clamp(2.1rem, 4.3vw, 2.9rem); }
 
-  /* trust */
-  .trust-item  { justify-content: center; }
-  .trust-copy  { text-align: center; }
-
   /* why */
   .adv-t, .adv-p { text-align: left; }
-
-  /* courses cards */
-  .c-card  { text-align: center; }
-  .c-meta  { justify-content: center; }
-  .c-foot  { justify-content: center; gap: 2rem; }
-
-  /* testimonials */
-  .testi-card  { text-align: center; }
-  .testi-auth  { text-align: center; }
 
   /* enroll */
   .enroll-info      { text-align: center; }
@@ -646,16 +656,6 @@ html { overflow-x: hidden; }
   .enroll-prep      { display: flex; flex-direction: column; align-items: center; }
   .enroll-prep-list { text-align: left; }
 
-  /* footer */
-  .foot-grid > div { text-align: center; }
-  .foot-desc   { margin: 0 auto 1.5rem; }
-  .social-row  { justify-content: center; }
-  .foot-bottom { justify-content: center; text-align: center; }
-  .foot-links  { align-items: center; }
-  .contact-row { align-items: center; }
-
-  /* schedule cta */
-  .sch-cta { display: flex; justify-content: center; margin-left: auto; margin-right: auto; }
 }
 
 /* ── Tablet 1024px (layout) ─────────────── */
