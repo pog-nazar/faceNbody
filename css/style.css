@@ -263,15 +263,18 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .hero-pill span { font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 
 .hero-hl {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.2rem, 8vw, 7rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.05;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.4rem, 6.5vw, 5.5rem);
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  line-height: 1.08;
   color: var(--text);
   margin-bottom: 1.75rem;
 }
-.hero-line { display: block; word-spacing: .05em; }
+.hero-line { display: block; word-spacing: .12em; }
+.hero-line-accent { color: var(--accent); }
 
 .hero-word {
   display: inline-block;
@@ -281,8 +284,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   animation-delay: var(--delay, 0ms);
 }
 @keyframes wordIn { to { opacity: 1; transform: translateY(0); } }
-
-.hero-word-accent { color: var(--accent); font-style: normal; }
 
 .hero-salary {
   display: flex;
@@ -702,7 +703,7 @@ html { overflow-x: hidden; }
   }
   .hero-img-col    { order: -1; }
   .hero-img        { height: 200px; min-height: unset; }
-  .hero-hl         { font-size: clamp(2.2rem, 9vw, 3.5rem); margin-bottom: 1.25rem; }
+  .hero-hl         { font-size: clamp(1.9rem, 8vw, 3rem); margin-bottom: 1.25rem; }
   .hero-sub        { font-size: 17px; margin-bottom: 1.5rem; }
   .hero-btns       { gap: .75rem; margin-bottom: 1.75rem; }
   .hero-pill       { margin-bottom: 1.25rem; }
@@ -800,7 +801,7 @@ html { overflow-x: hidden; }
   /* — hero — */
   #hero            { padding: 72px 1rem 36px; gap: 1.25rem; }
   .hero-img        { height: 170px; }
-  .hero-hl         { font-size: clamp(2rem, 8.5vw, 3rem); }
+  .hero-hl         { font-size: clamp(1.7rem, 7.5vw, 2.6rem); }
   .hero-btns       { flex-direction: column; }
   .hero-btns .btn  { width: 100%; justify-content: center; }
   .hero-pill span  { font-size: 12px; letter-spacing: .05em; }
@@ -860,7 +861,7 @@ html { overflow-x: hidden; }
 @media (max-width: 360px) {
   .container      { padding: 0 .9rem; }
   #hero           { padding: 68px .9rem 32px; }
-  .hero-hl        { font-size: clamp(1.75rem, 9vw, 2.5rem); }
+  .hero-hl        { font-size: clamp(1.5rem, 8vw, 2.1rem); }
   .hero-salary-val { font-size: 1.6rem; }
   .hero-pill span { font-size: 11px; }
   .stats-row      { gap: .5rem; }
@@ -882,7 +883,7 @@ html { overflow-x: hidden; }
 /* ── Large desktop 1440px+ ───────────────── */
 @media (min-width: 1440px) {
   .container { max-width: 1440px; }
-  .hero-hl       { font-size: clamp(3.2rem, 6vw, 8.5rem); }
+  .hero-hl       { font-size: clamp(2.4rem, 5vw, 6.5rem); }
   .section-title { font-size: clamp(2.6rem, 3.5vw, 4.75rem); }
 }
 
@@ -908,7 +909,7 @@ html { overflow-x: hidden; }
     padding: 96px clamp(1.5rem, 5vw, 4rem) 32px;
     gap: 2rem;
   }
-  .hero-hl      { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+  .hero-hl      { font-size: clamp(1.7rem, 4vw, 2.6rem); margin-bottom: 1rem; }
   .hero-img-col { padding-top: 0; align-self: center; }
   .hero-img     { height: auto; min-height: 0; max-height: 38vh; }
 }
