@@ -298,10 +298,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .hero-salary-val {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--accent);
-  line-height: 1;
+  line-height: 1.1;
   white-space: nowrap;
 }
 .hero-salary-curr {
@@ -309,8 +309,9 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   font-weight: 500;
 }
 .hero-salary-lbl {
-  font-size: 17px;
-  color: var(--muted);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
   line-height: 1.4;
 }
 
@@ -346,11 +347,11 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .stat-val {
   display: block;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.6rem; font-weight: 600;
+  font-size: 3.1rem; font-weight: 700;
   color: var(--accent); line-height: 1;
   white-space: nowrap;
 }
-.stat-lbl { display: block; font-size: 15px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-top: 5px; }
+.stat-lbl { display: block; font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: .04em; text-transform: uppercase; margin-top: 6px; }
 .stat-item + .stat-item { padding-left: 2.5rem; border-left: 1px solid var(--border); }
 
 .hero-img-col { position: relative; z-index: 1; align-self: start; padding-top: 4rem; }
@@ -619,7 +620,7 @@ html { overflow-x: hidden; }
     border-top: 4px solid var(--accent);
     border-radius: var(--r-sm);
   }
-  .hero-salary-val { white-space: normal; font-size: clamp(1.6rem, 3.6vw, 2.2rem); }
+  .hero-salary-val { white-space: normal; font-size: clamp(1.9rem, 4vw, 2.6rem); }
 
   /* trust */
   .trust-item  { justify-content: center; }
@@ -704,8 +705,8 @@ html { overflow-x: hidden; }
   .hero-btns       { gap: .75rem; margin-bottom: 1.75rem; }
   .hero-pill       { margin-bottom: 1.25rem; }
   .hero-salary     { padding: .85rem 1rem; margin-bottom: 1.25rem; }
-  .hero-salary-val { font-size: 1.5rem; white-space: normal; }
-  .hero-salary-lbl { font-size: 15px; }
+  .hero-salary-val { font-size: 1.9rem; white-space: normal; }
+  .hero-salary-lbl { font-size: 17px; }
 
   /* — stats — */
   .stats-row {
@@ -716,8 +717,8 @@ html { overflow-x: hidden; }
     border-top: 1px solid var(--border);
   }
   .stat-item + .stat-item { border-left: none; padding-left: 0; }
-  .stat-val { font-size: 1.6rem; }
-  .stat-lbl { font-size: 13px; }
+  .stat-val { font-size: 2rem; }
+  .stat-lbl { font-size: 15px; }
 
   /* — trust — */
   .trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -802,11 +803,11 @@ html { overflow-x: hidden; }
   .hero-btns .btn  { width: 100%; justify-content: center; }
   .hero-pill span  { font-size: 12px; letter-spacing: .05em; }
   .hero-salary     { padding: .65rem .85rem; margin-bottom: 1rem; }
-  .hero-salary-val { font-size: 1.3rem; }
-  .hero-salary-lbl { font-size: 14px; }
+  .hero-salary-val { font-size: 1.6rem; }
+  .hero-salary-lbl { font-size: 16px; }
   .hero-sub        { font-size: 16px; }
-  .stat-val        { font-size: 1.4rem; }
-  .stat-lbl        { font-size: 12px; }
+  .stat-val        { font-size: 1.7rem; }
+  .stat-lbl        { font-size: 14px; }
 
   /* — trust — */
   .trust-inner { grid-template-columns: 1fr; gap: .85rem; }
@@ -858,10 +859,10 @@ html { overflow-x: hidden; }
   .container      { padding: 0 .9rem; }
   #hero           { padding: 68px .9rem 32px; }
   .hero-hl        { font-size: clamp(1.75rem, 9vw, 2.5rem); }
-  .hero-salary-val { font-size: 1.15rem; }
+  .hero-salary-val { font-size: 1.4rem; }
   .hero-pill span { font-size: 11px; }
   .stats-row      { gap: .5rem; }
-  .stat-val       { font-size: 1.25rem; }
+  .stat-val       { font-size: 1.5rem; }
   .adv-n          { display: none; }
   .testi-card     { padding: 1.25rem; }
   .section-title  { font-size: clamp(1.75rem, 8vw, 2.2rem); }
