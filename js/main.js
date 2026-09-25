@@ -13,12 +13,14 @@ function openNav() {
   ham.classList.add('open');
   ham.setAttribute('aria-expanded', 'true');
   overlay.classList.add('open');
+  overlay.inert = false;
   document.body.style.overflow = 'hidden';
 }
 function closeNav() {
   ham.classList.remove('open');
   ham.setAttribute('aria-expanded', 'false');
   overlay.classList.remove('open');
+  overlay.inert = true;
   document.body.style.overflow = '';
 }
 
@@ -47,25 +49,41 @@ document.querySelectorAll('.reveal, .reveal-r, .section-hdr').forEach(el => reve
 
   const cCards = Array.from(track.querySelectorAll('.c-card'));
   const total  = cCards.length;
-  let center   = 1;
+  /* `center` = index of the LEFT-most currently visible card (a sliding
+     window of perView() cards), not the "active" card — this keeps every
+     window in range [0, total-perView()] so there's no out-of-bounds
+     index and no dead/blank slot at either end. */
+  let center = 0;
 
-  function perView() { return window.innerWidth >= 768 ? 3 : 1; }
-  function minIdx()  { return 0; }
-  function maxIdx()  { return total - 1; }
+  function perView() {
+    const w = window.innerWidth;
+    if (w > 1024) return 3;   // matches the default (>1024px) 3-up CSS
+    if (w > 768)  return 2;   // matches the 1024px-tablet 2-up CSS
+    return 1;                 // matches the 768px-mobile 1-up CSS
+  }
+  function minIdx() { return 0; }
+  function maxIdx() { return Math.max(0, total - perView()); }
 
   function update() {
-    const pv      = perView();
-    const leftIdx = pv === 3 ? center - 1 : center;
+    const pv = perView();
+    if (center > maxIdx()) center = maxIdx();
+    if (center < minIdx()) center = minIdx();
+
+    const leftIdx = center;
     const cardW   = cCards[0].offsetWidth;
     const gap     = parseFloat(getComputedStyle(track).columnGap) || 32;
     track.style.transform = `translateX(${-(leftIdx * (cardW + gap))}px)`;
 
     cCards.forEach((card, i) => {
       card.classList.remove('c-active', 'c-side');
-      if (i === center) {
+      const visible = i >= leftIdx && i < leftIdx + pv;
+      if (!visible) return;
+      if (pv === 3) {
+        // middle card of the 3 visible gets the emphasis treatment
+        if (i === leftIdx + 1) card.classList.add('c-active');
+        else card.classList.add('c-side');
+      } else {
         card.classList.add('c-active');
-      } else if (pv === 3 && (i === center - 1 || i === center + 1)) {
-        card.classList.add('c-side');
       }
     });
 
@@ -76,12 +94,18 @@ document.querySelectorAll('.reveal, .reveal-r, .section-hdr').forEach(el => reve
   prevBtn.addEventListener('click', () => { if (center > minIdx()) { center--; update(); } });
   nextBtn.addEventListener('click', () => { if (center < maxIdx()) { center++; update(); } });
 
-  /* touch swipe */
-  let touchX = 0;
-  track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  /* touch swipe — ignore drags that are mostly vertical (page scroll) */
+  let touchX = 0, touchY = 0;
+  track.addEventListener('touchstart', e => {
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+  }, { passive: true });
   track.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 40) dx < 0 ? nextBtn.click() : prevBtn.click();
+    const dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      dx < 0 ? nextBtn.click() : prevBtn.click();
+    }
   }, { passive: true });
 
   window.addEventListener('resize', update);
