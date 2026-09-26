@@ -641,313 +641,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .sch-cta { display: flex; justify-content: center; margin-left: auto; margin-right: auto; }
 
 /* ══════════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════════ */
-html { overflow-x: hidden; }
-
-/* ── Centering: tablet + mobile ────────── */
-@media (max-width: 1024px) {
-
-  /* hero */
-  .hero-content  { text-align: center; }
-  .hero-pill     { margin-left: auto; margin-right: auto; flex-wrap: wrap; justify-content: center; }
-  .hero-btns     { justify-content: center; flex-wrap: wrap; }
-  .hero-sub      { margin-left: auto; margin-right: auto; max-width: 100%; width: fit-content; text-align: left; }
-  .stats-row     { justify-content: center; }
-  .hero-salary   {
-    justify-content: center; text-align: center;
-    border-left: 1px solid rgba(13,110,253,.22);
-    border-top: 4px solid var(--accent);
-    border-radius: var(--r-sm);
-  }
-  .hero-salary-val { white-space: normal; font-size: clamp(2.1rem, 4.3vw, 2.9rem); }
-
-  /* why */
-  .adv-t, .adv-p { text-align: left; }
-
-  /* enroll */
-  .enroll-info      { text-align: center; }
-  .enroll-text      { margin-left: auto; margin-right: auto; }
-  .enroll-contacts  { align-items: center; }
-  .enroll-msg-note  { margin-left: auto; margin-right: auto; }
-  .enroll-prep      { display: flex; flex-direction: column; align-items: center; }
-  .enroll-prep-list { text-align: left; }
-
-}
-
-/* ── Tablet 1024px (layout) ─────────────── */
-@media (max-width: 1024px) {
-  .why-grid      { grid-template-columns: 1fr; margin-top: 2rem; }
-  .why-img-wrap  { min-height: unset; height: 280px; }
-  .enroll-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .enroll-text  { max-width: 100%; }
-
-  /* hero image loses its uncapped 65vh floor on portrait tablets */
-  .hero-img { height: 45vh; min-height: 300px; max-height: 460px; }
-
-  /* courses: 2-up between mobile (≤768) and full desktop (>1024) */
-  .c-card { flex: 0 0 calc((100% - 2rem) / 2); }
-  .c-desc { -webkit-line-clamp: 2; }
-
-  /* schedule: 4 pricing cards get cramped before the mobile breakpoint */
-  .sch-grid-4 { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ── Mobile 768px ──────────────────────── */
-@media (max-width: 768px) {
-
-  /* — global — */
-  .container { padding: 0 1.25rem; }
-
-  /* — nav — */
-  .nav-desk { display: none; }
-  .header-inner > .btn { display: none; }
-  .hamburger { display: flex; }
-  .logo { font-size: 18px; letter-spacing: .02em; }
-
-  /* — section padding — */
-  #courses, #schedule, #why, #testimonials, #enroll { padding: 4rem 0; }
-
-  /* — section headers — */
-  .section-title { font-size: clamp(1.8rem, 6.5vw, 2.4rem); }
-
-  /* — hero — */
-  #hero {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 80px 1.25rem 40px;
-    min-height: auto;
-  }
-  .hero-img-col    { order: -1; }
-  .hero-img        { height: 200px; min-height: unset; }
-  .hero-hl         { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 1.25rem; }
-  .hero-sub        { font-size: 17px; margin-bottom: 1.5rem; }
-  .hero-btns       { gap: .75rem; margin-bottom: 1.75rem; }
-  .hero-pill       { margin-bottom: 1.25rem; }
-  .hero-salary     { padding: .85rem 1rem; margin-bottom: 1.25rem; }
-  .hero-salary-val { font-size: 2.1rem; white-space: normal; }
-  .hero-salary-lbl { font-size: 18px; }
-
-  /* — stats — */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: .75rem 1rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--border);
-  }
-  .stat-item + .stat-item { border-left: none; padding-left: 0; }
-  .stat-val { font-size: 2.3rem; }
-  .stat-lbl { font-size: 16px; }
-
-  /* — trust — */
-  .trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .trust-item  { justify-content: center; }
-  .trust-item + .trust-item { border-left: none; padding-left: 0; }
-  .trust-item:nth-child(odd) { border-right: 1px solid rgba(13,110,253,.2); padding-right: .75rem; }
-
-  /* — courses — */
-  #courses .container { padding: 0 1.25rem; }
-  .courses-stage      { gap: .5rem; margin-top: 1.75rem; }
-  .c-nav-btn          { width: 44px; height: 44px; flex-shrink: 0; }
-  /* track-wrap отримує flex:1; картка = вся ширина треку мінус 1rem відступ */
-  .courses-track-wrap { padding: 0; margin: 0; }
-  .c-card             { flex: 0 0 calc(100% - 1rem); }
-  .c-card.c-active    { transform: none; }
-  .c-thumb            { height: 160px; }
-  .c-body             { padding: 1.1rem; }
-  .c-title            { font-size: 1.25rem; }
-  .c-desc             { font-size: 16px; -webkit-line-clamp: 2; margin-bottom: .4rem; }
-  .c-meta-item        { font-size: 15px; }
-  .c-price            { font-size: 1.3rem; }
-  .c-link             { font-size: 15px; }
-
-  /* — schedule — */
-  .sch-grid-3, .sch-grid-4 { grid-template-columns: 1fr; }
-  .sch-card      { padding: 1.5rem; }
-  .sch-card-name { font-size: 17px; }
-
-  /* — why — */
-  .why-img-wrap { height: 220px; }
-  .adv-n   { font-size: 36px; flex-basis: 40px; }
-  .adv     { gap: .85rem; padding: .9rem 0; }
-  .adv-t   { font-size: 16px; }
-  .adv-p   { font-size: 15px; }
-
-  /* — testimonials — */
-  .testi-grid { grid-template-columns: 1fr; }
-  .testi-card { padding: 1.5rem; }
-  .testi-text { font-size: 16px; }
-
-  /* — enroll — */
-  .enroll-grid          { grid-template-columns: 1fr; gap: 2rem; }
-  .enroll-text          { font-size: 17px; margin-top: 1rem; margin-bottom: 1.5rem; max-width: 100%; }
-  .enroll-form-wrap     { padding: 1.5rem; }
-  .enroll-contact-link  { font-size: 16px; }
-  .form-input           { font-size: 18px; padding: 13px 14px; }
-  .form-label           { font-size: 13px; }
-
-  /* — footer — */
-  .foot-grid   { grid-template-columns: 1fr; gap: 1.75rem; }
-  .foot-desc   { max-width: 100%; }
-  .foot-links a      { font-size: 16px; }
-  .contact-val       { font-size: 17px; }
-  .foot-col-label    { font-size: 13px; }
-
-  /* — rings (scale down) — */
-  .ring { border-color: rgba(13,110,253,.15); }
-  .ring-3, .ring-5, .ring-7, .ring-9, .ring-11 { display: none; }
-  .ring-1  { width: 280px; height: 280px; }
-  .ring-2  { width: 220px; height: 220px; }
-  .ring-4  { width: 300px; height: 300px; }
-  .ring-6  { width: 240px; height: 240px; }
-  .ring-8  { width: 320px; height: 320px; }
-  .ring-10 { width: 260px; height: 260px; }
-  .ring-12 { width: 240px; height: 240px; }
-  .orb-1   { width: 300px; height: 300px; }
-  .orb-2   { width: 260px; height: 260px; }
-}
-
-/* ── Small mobile 480px ────────────────── */
-@media (max-width: 480px) {
-
-  /* — section padding — */
-  #courses, #schedule, #why, #testimonials, #enroll { padding: 3rem 0; }
-
-  /* — hero — */
-  #hero            { padding: 72px 1rem 36px; gap: 1.25rem; }
-  .hero-img        { height: 170px; }
-  .hero-hl         { font-size: clamp(1.8rem, 7.5vw, 2.6rem); }
-  .hero-btns       { flex-direction: column; }
-  .hero-btns .btn  { width: 100%; justify-content: center; }
-  .hero-pill span  { font-size: 12px; letter-spacing: .05em; }
-  .hero-salary     { padding: .65rem .85rem; margin-bottom: 1rem; }
-  .hero-salary-val { font-size: 1.8rem; }
-  .hero-salary-lbl { font-size: 17px; }
-  .hero-sub        { font-size: 16px; }
-  .stat-val        { font-size: 1.9rem; }
-  .stat-lbl        { font-size: 15px; }
-
-  /* — trust — */
-  .trust-inner { grid-template-columns: 1fr; gap: .85rem; }
-  .trust-item:nth-child(odd) { border-right: none; padding-right: 0; }
-
-  /* — courses — */
-  .c-nav-btn { width: 44px; height: 44px; }
-  .c-card    { flex: 0 0 calc(100% - 0.5rem); }
-  .c-title   { font-size: 1.15rem; }
-  .c-body    { padding: 1rem; }
-
-  /* — schedule — */
-  .sch-card-name { font-size: 16px; }
-
-  /* — why — */
-  .adv-n { font-size: 30px; flex-basis: 34px; }
-  .adv-t { font-size: 15px; }
-  .adv-p { font-size: 14px; }
-
-  /* — testimonials — */
-  .testi-text { font-size: 15px; }
-
-  /* — form — */
-  .form-row         { grid-template-columns: 1fr; }
-  .enroll-form-wrap { padding: 1.25rem; }
-  .enroll-contacts  { gap: .75rem; }
-  .form-input       { font-size: 17px; padding: 12px 13px; }
-
-  /* — footer — */
-  .foot-desc    { font-size: 15px; }
-  .foot-links a { font-size: 15px; }
-  .contact-val  { font-size: 16px; }
-
-  /* — rings (minimal) — */
-  .ring-1  { width: 220px; height: 220px; }
-  .ring-4  { width: 240px; height: 240px; }
-  .ring-8  { width: 260px; height: 260px; }
-  .ring-10 { width: 200px; height: 200px; }
-  .ring-2, .ring-6, .ring-12 { display: none; }
-  .orb-1   { width: 220px; height: 220px; }
-  .orb-2   { width: 180px; height: 180px; }
-}
-
-/* ── Tiny mobile 360px ─────────────────── */
-@media (max-width: 360px) {
-  .container      { padding: 0 .9rem; }
-  #hero           { padding: 68px .9rem 32px; }
-  .hero-hl        { font-size: clamp(1.6rem, 8vw, 2.2rem); }
-  .hero-salary-val { font-size: 1.6rem; }
-  .hero-pill span { font-size: 11px; }
-  .stats-row      { gap: .5rem; }
-  .stat-val       { font-size: 1.7rem; }
-  .adv-n          { display: none; }
-  .testi-card     { padding: 1.25rem; }
-  .section-title  { font-size: clamp(1.6rem, 7vw, 1.9rem); }
-  .c-nav-btn      { width: 30px; height: 30px; position: relative; }
-  .c-nav-btn::before { content: ''; position: absolute; inset: -8px; }
-  .courses-stage  { gap: .35rem; }
-}
-
-/* ── Ultra-narrow 340px (Galaxy Fold cover screen etc.) ── */
-@media (max-width: 340px) {
-  .c-nav-btn { display: none; }
-  .courses-stage { gap: 0; }
-}
-
-/* ── Large desktop 1440px+ ───────────────── */
-@media (min-width: 1440px) {
-  .container { max-width: 1440px; }
-  .hero-hl       { font-size: clamp(2.6rem, 5vw, 6.8rem); }
-  .section-title { font-size: clamp(2.2rem, 3vw, 4rem); }
-}
-
-/* ── Wide desktop 1920px+ ────────────────── */
-@media (min-width: 1920px) {
-  .container { max-width: 1680px; }
-  #hero { max-width: 1900px; }
-  #courses .container { max-width: 1900px; }
-  .ring-1  { width: clamp(500px, 32vw, 760px); height: clamp(500px, 32vw, 760px); }
-  .ring-4  { width: clamp(550px, 36vw, 860px); height: clamp(550px, 36vw, 860px); }
-  .ring-6  { width: clamp(450px, 29vw, 690px); height: clamp(450px, 29vw, 690px); }
-  .ring-8  { width: clamp(600px, 42vw, 980px); height: clamp(600px, 42vw, 980px); }
-  .ring-10 { width: clamp(500px, 34vw, 800px); height: clamp(500px, 34vw, 800px); }
-  .ring-12 { width: clamp(450px, 30vw, 710px); height: clamp(450px, 30vw, 710px); }
-  .orb-1   { width: clamp(550px, 37vw, 880px); height: clamp(550px, 37vw, 880px); }
-  .orb-2   { width: clamp(500px, 32vw, 760px); height: clamp(500px, 32vw, 760px); }
-}
-
-/* ── Landscape phones & short-height viewports ── */
-@media (max-height: 500px) and (min-width: 769px) {
-  #hero {
-    min-height: auto;
-    padding: 96px clamp(1.5rem, 5vw, 4rem) 32px;
-    gap: 2rem;
-  }
-  .hero-hl      { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1rem; }
-  .hero-img-col { padding-top: 0; align-self: center; }
-  .hero-img     { height: auto; min-height: 0; max-height: 38vh; }
-}
-@media (max-height: 500px) {
-  /* safe at any width: only ever shrinks things */
-  .nav-overlay        { justify-content: flex-start; }
-  .nav-overlay-links  { gap: 1.1rem; }
-  .nav-overlay-links a { font-size: clamp(1.3rem, 6vw, 1.8rem); }
-}
-/* Forcing 4 stats into one row / a wider toast only makes sense once
-   there's enough width for it — below 600px this would overflow. */
-@media (max-height: 500px) and (min-width: 600px) {
-  .stats-row {
-    display: flex; flex-wrap: nowrap; gap: 1.25rem;
-    padding-top: 1rem;
-  }
-  .stat-item + .stat-item { border-left: 1px solid var(--border); padding-left: 1.25rem; }
-  .toast       { bottom: .75rem; right: .75rem; max-width: 300px; }
-  .toast-inner { padding: .85rem .85rem .85rem 1rem; gap: .6rem; }
-  .toast-icon  { width: 30px; height: 30px; font-size: 16px; }
-  .toast-title { font-size: 1rem; margin-bottom: .15rem; }
-  .toast-text  { font-size: 14px; }
-}
-
-/* ══════════════════════════════════════════
    10. ФОРМА ЗАПИСУ
 ══════════════════════════════════════════ */
 #enroll {
@@ -1079,6 +772,315 @@ html { overflow-x: hidden; }
 @media (max-width: 540px) {
   .form-row { grid-template-columns: 1fr; }
   .enroll-form-wrap { padding: 1.5rem; }
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+html { overflow-x: hidden; }
+
+/* ── Centering: tablet + mobile ────────── */
+@media (max-width: 1024px) {
+
+  /* hero */
+  .hero-content  { text-align: center; }
+  .hero-pill     { margin-left: auto; margin-right: auto; flex-wrap: wrap; justify-content: center; }
+  .hero-btns     { justify-content: center; flex-wrap: wrap; }
+  .hero-sub      { margin-left: auto; margin-right: auto; max-width: 100%; width: fit-content; text-align: left; }
+  .stats-row     { justify-content: center; }
+  .hero-salary   {
+    justify-content: center; text-align: center;
+    border-left: 1px solid rgba(13,110,253,.22);
+    border-top: 4px solid var(--accent);
+    border-radius: var(--r-sm);
+  }
+  .hero-salary-val { white-space: normal; font-size: clamp(2.1rem, 4.3vw, 2.9rem); }
+
+  /* why */
+  .adv-t, .adv-p { text-align: left; }
+
+  /* enroll */
+  .enroll-info      { text-align: center; }
+  .enroll-text      { margin-left: auto; margin-right: auto; }
+  .enroll-contacts  { align-items: center; }
+  .enroll-msg-note  { margin-left: auto; margin-right: auto; }
+  .enroll-prep      { display: flex; flex-direction: column; align-items: center; }
+  .enroll-prep-list { text-align: left; }
+
+}
+
+/* ── Tablet 1024px (layout) ─────────────── */
+@media (max-width: 1024px) {
+  /* the full desktop nav (logo + 4 links + outline button) doesn't
+     comfortably fit below 1024px and wraps — switch to the hamburger here */
+  .nav-desk            { display: none; }
+  .header-inner > .btn { display: none; }
+  .hamburger           { display: flex; }
+
+  .why-grid      { grid-template-columns: 1fr; margin-top: 2rem; }
+  .why-img-wrap  { min-height: unset; height: 280px; }
+  .enroll-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .enroll-text  { max-width: 100%; }
+
+  /* hero photo is dropped entirely on laptop and smaller — text takes the full width */
+  #hero            { grid-template-columns: 1fr; }
+  .hero-img-col    { display: none; }
+
+  /* courses: 2-up between mobile (≤768) and full desktop (>1024) */
+  .c-card { flex: 0 0 calc((100% - 2rem) / 2); }
+  .c-desc { -webkit-line-clamp: 2; }
+
+  /* schedule: 4 pricing cards get cramped before the mobile breakpoint */
+  .sch-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Mobile 768px ──────────────────────── */
+@media (max-width: 768px) {
+
+  /* — global — */
+  .container { padding: 0 1.25rem; }
+
+  /* — nav — */
+  .logo { font-size: 18px; letter-spacing: .02em; }
+
+  /* — section padding — */
+  #courses, #schedule, #why, #testimonials, #enroll { padding: 4rem 0; }
+
+  /* — section headers — */
+  .section-title { font-size: clamp(1.8rem, 6.5vw, 2.4rem); }
+
+  /* — hero — */
+  #hero {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 80px 1.25rem 40px;
+    min-height: auto;
+  }
+  .hero-hl         { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 1.25rem; }
+  .hero-sub        { font-size: 17px; margin-bottom: 1.5rem; }
+  .hero-btns       { gap: .75rem; margin-bottom: 1.75rem; }
+  .hero-pill       { margin-bottom: 1.25rem; }
+  .hero-salary     { padding: .85rem 1rem; margin-bottom: 1.25rem; }
+  .hero-salary-val { font-size: 2.1rem; white-space: normal; }
+  .hero-salary-lbl { font-size: 18px; }
+
+  /* — stats — */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .75rem 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item + .stat-item { border-left: none; padding-left: 0; }
+  .stat-val { font-size: 2.3rem; }
+  .stat-lbl { font-size: 16px; }
+
+  /* — trust — */
+  .trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .trust-item  { justify-content: center; }
+  .trust-item + .trust-item { border-left: none; padding-left: 0; }
+  .trust-item:nth-child(odd) { border-right: 1px solid rgba(13,110,253,.2); padding-right: .75rem; }
+
+  /* — courses — */
+  #courses .container { padding: 0 1.25rem; }
+  .courses-stage      { gap: .5rem; margin-top: 1.75rem; }
+  .c-nav-btn          { width: 44px; height: 44px; flex-shrink: 0; }
+  /* track-wrap отримує flex:1; картка = вся ширина треку мінус 1rem відступ */
+  .courses-track-wrap { padding: 0; margin: 0; }
+  .c-card             { flex: 0 0 calc(100% - 1rem); }
+  .c-card.c-active    { transform: none; }
+  .c-thumb            { height: 160px; }
+  .c-body             { padding: 1.1rem; }
+  .c-title            { font-size: 1.25rem; }
+  .c-desc             { font-size: 16px; -webkit-line-clamp: 2; margin-bottom: .4rem; }
+  .c-meta-item        { font-size: 15px; }
+  .c-price            { font-size: 1.3rem; }
+  .c-link             { font-size: 15px; }
+
+  /* — schedule — */
+  .sch-grid-3, .sch-grid-4 { grid-template-columns: 1fr; }
+  .sch-card      { padding: 1.5rem; }
+  .sch-card-name { font-size: 17px; }
+
+  /* — why — */
+  .why-img-wrap { height: 220px; }
+  .adv-n   { font-size: 36px; flex-basis: 40px; }
+  .adv     { gap: .85rem; padding: .9rem 0; }
+  .adv-t   { font-size: 16px; }
+  .adv-p   { font-size: 15px; }
+
+  /* — testimonials — */
+  .testi-grid { grid-template-columns: 1fr; }
+  .testi-card { padding: 1.5rem; }
+  .testi-text { font-size: 16px; }
+
+  /* — enroll — */
+  .enroll-grid          { grid-template-columns: 1fr; gap: 2rem; }
+  .enroll-text          { font-size: 17px; margin-top: 1rem; margin-bottom: 1.5rem; max-width: 100%; }
+  .enroll-form-wrap     { padding: 1.5rem; }
+  .enroll-contact-link  { font-size: 16px; }
+  .form-input           { font-size: 18px; padding: 13px 14px; }
+  .form-label           { font-size: 13px; }
+
+  /* — footer — */
+  .foot-grid   { grid-template-columns: 1fr; gap: 1.75rem; }
+  .foot-desc   { max-width: 100%; }
+  .foot-links a      { font-size: 16px; }
+  .contact-val       { font-size: 17px; }
+  .foot-col-label    { font-size: 13px; }
+
+  /* — rings (scale down) — */
+  .ring { border-color: rgba(13,110,253,.15); }
+  .ring-3, .ring-5, .ring-7, .ring-9, .ring-11 { display: none; }
+  .ring-1  { width: 280px; height: 280px; }
+  .ring-2  { width: 220px; height: 220px; }
+  .ring-4  { width: 300px; height: 300px; }
+  .ring-6  { width: 240px; height: 240px; }
+  .ring-8  { width: 320px; height: 320px; }
+  .ring-10 { width: 260px; height: 260px; }
+  .ring-12 { width: 240px; height: 240px; }
+  .orb-1   { width: 300px; height: 300px; }
+  .orb-2   { width: 260px; height: 260px; }
+}
+
+/* ── Small mobile 480px ────────────────── */
+@media (max-width: 480px) {
+
+  /* — section padding — */
+  #courses, #schedule, #why, #testimonials, #enroll { padding: 3rem 0; }
+
+  /* — hero — */
+  #hero            { padding: 72px 1rem 36px; gap: 1.25rem; }
+  .hero-hl         { font-size: clamp(1.8rem, 7.5vw, 2.6rem); }
+  .hero-btns       { flex-direction: column; }
+  .hero-btns .btn  { width: 100%; justify-content: center; }
+  .hero-pill span  { font-size: 12px; letter-spacing: .05em; }
+  .hero-salary     { padding: .65rem .85rem; margin-bottom: 1rem; }
+  .hero-salary-val { font-size: 1.8rem; }
+  .hero-salary-lbl { font-size: 17px; }
+  .hero-sub        { font-size: 16px; }
+  .stat-val        { font-size: 1.9rem; }
+  .stat-lbl        { font-size: 15px; }
+
+  /* — trust — */
+  .trust-inner { grid-template-columns: 1fr; gap: .85rem; }
+  .trust-item:nth-child(odd) { border-right: none; padding-right: 0; }
+
+  /* — courses — */
+  .c-nav-btn { width: 44px; height: 44px; }
+  .c-card    { flex: 0 0 calc(100% - 0.5rem); }
+  .c-title   { font-size: 1.15rem; }
+  .c-body    { padding: 1rem; }
+
+  /* — schedule — */
+  .sch-card-name { font-size: 16px; }
+
+  /* — why — */
+  .adv-n { font-size: 30px; flex-basis: 34px; }
+  .adv-t { font-size: 15px; }
+  .adv-p { font-size: 14px; }
+
+  /* — testimonials — */
+  .testi-text { font-size: 15px; }
+
+  /* — form — */
+  .form-row         { grid-template-columns: 1fr; }
+  .enroll-form-wrap { padding: 1.25rem; }
+  .enroll-contacts  { gap: .75rem; }
+  .form-input       { font-size: 17px; padding: 12px 13px; }
+
+  /* — footer — */
+  .foot-desc    { font-size: 15px; }
+  .foot-links a { font-size: 15px; }
+  .contact-val  { font-size: 16px; }
+
+  /* — rings (minimal) — */
+  .ring-1  { width: 220px; height: 220px; }
+  .ring-4  { width: 240px; height: 240px; }
+  .ring-8  { width: 260px; height: 260px; }
+  .ring-10 { width: 200px; height: 200px; }
+  .ring-2, .ring-6, .ring-12 { display: none; }
+  .orb-1   { width: 220px; height: 220px; }
+  .orb-2   { width: 180px; height: 180px; }
+}
+
+/* ── Tiny mobile 360px ─────────────────── */
+@media (max-width: 360px) {
+  .container      { padding: 0 .9rem; }
+  #hero           { padding: 68px .9rem 32px; }
+  .hero-hl        { font-size: clamp(1.6rem, 8vw, 2.2rem); }
+  .hero-salary-val { font-size: 1.6rem; }
+  .hero-pill span { font-size: 11px; }
+  .stats-row      { gap: .5rem; }
+  .stat-val       { font-size: 1.7rem; }
+  .adv-n          { display: none; }
+  .testi-card     { padding: 1.25rem; }
+  .section-title  { font-size: clamp(1.6rem, 7vw, 1.9rem); }
+  .c-nav-btn      { width: 30px; height: 30px; position: relative; }
+  .c-nav-btn::before { content: ''; position: absolute; inset: -8px; }
+  .courses-stage  { gap: .35rem; }
+}
+
+/* ── Ultra-narrow 340px (Galaxy Fold cover screen etc.) ── */
+@media (max-width: 340px) {
+  .c-nav-btn { display: none; }
+  .courses-stage { gap: 0; }
+}
+
+/* ── Large desktop 1440px+ ───────────────── */
+@media (min-width: 1440px) {
+  .container { max-width: 1440px; }
+  .hero-hl       { font-size: clamp(2.6rem, 5vw, 6.8rem); }
+  .section-title { font-size: clamp(2.2rem, 3vw, 4rem); }
+}
+
+/* ── Wide desktop 1920px+ ────────────────── */
+@media (min-width: 1920px) {
+  .container { max-width: 1680px; }
+  #hero { max-width: 1900px; }
+  #courses .container { max-width: 1900px; }
+  .ring-1  { width: clamp(500px, 32vw, 760px); height: clamp(500px, 32vw, 760px); }
+  .ring-4  { width: clamp(550px, 36vw, 860px); height: clamp(550px, 36vw, 860px); }
+  .ring-6  { width: clamp(450px, 29vw, 690px); height: clamp(450px, 29vw, 690px); }
+  .ring-8  { width: clamp(600px, 42vw, 980px); height: clamp(600px, 42vw, 980px); }
+  .ring-10 { width: clamp(500px, 34vw, 800px); height: clamp(500px, 34vw, 800px); }
+  .ring-12 { width: clamp(450px, 30vw, 710px); height: clamp(450px, 30vw, 710px); }
+  .orb-1   { width: clamp(550px, 37vw, 880px); height: clamp(550px, 37vw, 880px); }
+  .orb-2   { width: clamp(500px, 32vw, 760px); height: clamp(500px, 32vw, 760px); }
+}
+
+/* ── Landscape phones & short-height viewports ── */
+@media (max-height: 500px) and (min-width: 769px) {
+  #hero {
+    min-height: auto;
+    padding: 96px clamp(1.5rem, 5vw, 4rem) 32px;
+    gap: 2rem;
+  }
+  .hero-hl      { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1rem; }
+  .hero-img-col { padding-top: 0; align-self: center; }
+  .hero-img     { height: auto; min-height: 0; max-height: 38vh; }
+}
+@media (max-height: 500px) {
+  /* safe at any width: only ever shrinks things */
+  .nav-overlay        { justify-content: flex-start; }
+  .nav-overlay-links  { gap: 1.1rem; }
+  .nav-overlay-links a { font-size: clamp(1.3rem, 6vw, 1.8rem); }
+}
+/* Forcing 4 stats into one row / a wider toast only makes sense once
+   there's enough width for it — below 600px this would overflow. */
+@media (max-height: 500px) and (min-width: 600px) {
+  .stats-row {
+    display: flex; flex-wrap: nowrap; gap: 1.25rem;
+    padding-top: 1rem;
+  }
+  .stat-item + .stat-item { border-left: 1px solid var(--border); padding-left: 1.25rem; }
+  .toast       { bottom: .75rem; right: .75rem; max-width: 300px; }
+  .toast-inner { padding: .85rem .85rem .85rem 1rem; gap: .6rem; }
+  .toast-icon  { width: 30px; height: 30px; font-size: 16px; }
+  .toast-title { font-size: 1rem; margin-bottom: .15rem; }
+  .toast-text  { font-size: 14px; }
 }
 
 /* ══════════════════════════════════════════
