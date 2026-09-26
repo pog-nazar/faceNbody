@@ -421,8 +421,13 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
-.c-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.c-thumb img {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
 
 .c-tag {
   position: absolute; top: 14px; left: 14px;
@@ -530,12 +535,17 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 ══════════════════════════════════════════ */
 #why { padding: 7.5rem 0; }
 .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: stretch; margin-top: 3rem; }
-.why-img {
-  display: block;
+.why-img-wrap {
+  position: relative;
   width: 100%; height: 100%; min-height: 420px;
-  object-fit: cover; object-position: center;
+  overflow: hidden;
   border-radius: var(--r-md);
   border: 1px solid var(--border);
+}
+.why-img {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
 }
 
 .adv-list { display: flex; flex-direction: column; }
@@ -667,8 +677,8 @@ html { overflow-x: hidden; }
 
 /* ── Tablet 1024px (layout) ─────────────── */
 @media (max-width: 1024px) {
-  .why-grid   { grid-template-columns: 1fr; margin-top: 2rem; }
-  .why-img    { min-height: unset; height: 280px; }
+  .why-grid      { grid-template-columns: 1fr; margin-top: 2rem; }
+  .why-img-wrap  { min-height: unset; height: 280px; }
   .enroll-grid { grid-template-columns: 1fr; gap: 3rem; }
   .enroll-text  { max-width: 100%; }
 
@@ -758,7 +768,7 @@ html { overflow-x: hidden; }
   .sch-card-name { font-size: 17px; }
 
   /* — why — */
-  .why-img { height: 220px; }
+  .why-img-wrap { height: 220px; }
   .adv-n   { font-size: 36px; flex-basis: 40px; }
   .adv     { gap: .85rem; padding: .9rem 0; }
   .adv-t   { font-size: 16px; }
