@@ -509,15 +509,20 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .sch-card-instr { font-size: 15px; color: var(--muted); line-height: 1.65; }
 
 .sch-card-featured {
+  position: relative;
   background: linear-gradient(180deg, rgba(13,110,253,.05) 0%, var(--white) 45%);
   border: 2px solid var(--accent);
 }
 .sch-card-tag {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
   display: inline-block;
   background: var(--accent); color: #FFFFFF;
   font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
-  padding: 5px 12px; border-radius: 100px;
-  margin-bottom: .85rem;
+  padding: 5px 14px; border-radius: 100px;
+  box-shadow: 0 4px 10px rgba(13,110,253,.35);
+  white-space: nowrap;
 }
 
 .sch-cta {
@@ -577,7 +582,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 .foot-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem;
-  padding-bottom: 2rem; border-bottom: 1px solid var(--border);
 }
 .foot-logo {
   font-family: 'Inter', sans-serif;
@@ -606,13 +610,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .contact-label { font-size: 14px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .contact-val   { font-size: 18px; color: var(--text); font-weight: 500; }
 
-.foot-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-top: 1.5rem; flex-wrap: wrap; gap: 1rem;
-}
-.foot-copy { font-size: 14px; color: var(--muted); }
-.foot-lang { font-size: 14px; color: var(--muted); letter-spacing: .08em; }
-
 /* ── CENTERED SECTION CONTENT (all widths) ──
    Grid/feed-style sections read best centered at every width. Hero and
    enroll stay left-aligned on desktop — they pair text with an image/form
@@ -630,7 +627,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .foot-grid > div { text-align: center; }
 .foot-desc   { margin: 0 auto 1.5rem; }
 .social-row  { justify-content: center; }
-.foot-bottom { justify-content: center; text-align: center; }
 .foot-links  { align-items: center; }
 .contact-row { align-items: center; }
 
@@ -852,7 +848,6 @@ html { overflow-x: hidden; }
   .form-input       { font-size: 17px; padding: 12px 13px; }
 
   /* — footer — */
-  .foot-bottom  { flex-direction: column; align-items: center; gap: .4rem; }
   .foot-desc    { font-size: 15px; }
   .foot-links a { font-size: 15px; }
   .contact-val  { font-size: 16px; }
