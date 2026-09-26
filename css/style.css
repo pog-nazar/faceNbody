@@ -803,11 +803,24 @@ html { overflow-x: hidden; }
   /* enroll */
   .enroll-info      { text-align: center; }
   .enroll-text      { margin-left: auto; margin-right: auto; }
-  .enroll-contacts  { align-items: center; }
-  .enroll-msg-note  { margin-left: auto; margin-right: auto; }
-  .enroll-prep      { display: flex; flex-direction: column; align-items: center; }
+
+  /* contacts + "what you need to start" sit side by side, left-aligned,
+     on tablet/laptop (≤1024px, incl. 768px) — reverted to a single
+     centered column again below 540px where two columns get too tight */
+  .enroll-side-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; text-align: left; margin-top: 1.75rem; }
+  .enroll-contacts  { align-items: flex-start; }
+  .enroll-msg-note  { margin: .85rem 0 0; max-width: none; }
+  .enroll-prep      { display: flex; flex-direction: column; align-items: flex-start; margin-top: 0; }
   .enroll-prep-list { text-align: left; }
 
+}
+
+/* too narrow for the enroll side-by-side columns above — back to one, centered */
+@media (max-width: 540px) {
+  .enroll-side-cols { grid-template-columns: 1fr; gap: 0; text-align: center; }
+  .enroll-contacts  { align-items: center; }
+  .enroll-msg-note  { margin: .85rem auto 0; max-width: 400px; }
+  .enroll-prep      { align-items: center; margin-top: 1.75rem; }
 }
 
 /* ── Tablet 1024px (layout) ─────────────── */
