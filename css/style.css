@@ -485,35 +485,48 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 ══════════════════════════════════════════ */
 #schedule { padding: 7.5rem 0; background: var(--surface); }
 
-.sch-list { display: flex; flex-direction: column; }
-.sch-item {
-  display: flex; align-items: center; gap: 2rem;
-  padding: 1.4rem 1rem;
-  border-bottom: 1px solid var(--border);
-  border-left: 2px solid transparent;
-  transition: border-color .2s, background .2s;
-  cursor: default;
-}
-.sch-item:first-child { border-top: 1px solid var(--border); }
-.sch-item:hover { border-left-color: var(--accent); background: rgba(13,110,253,.025); }
+.sch-subhead { display: block; text-align: center; margin: 3rem 0 1.5rem; }
+.sch-subhead:first-of-type { margin-top: 0; }
 
-.sch-main  { flex: 1; min-width: 0; }
-.sch-name  { display: block; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-.sch-instr { font-size: 16px; color: var(--muted); }
-.sch-time  { font-size: 16px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-.sch-start { font-size: 16px; color: var(--accent); white-space: nowrap; flex-shrink: 0; font-weight: 600; }
-.sch-arrow { color: var(--muted); font-size: 20px; flex-shrink: 0; transition: transform .2s, color .2s; }
-.sch-item:hover .sch-arrow { transform: translateX(4px); color: var(--accent); }
+.sch-grid { display: grid; gap: 1.25rem; align-items: stretch; }
+.sch-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.sch-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.sch-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.sch-card:hover {
+  border-color: rgba(13,110,253,.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(13,110,253,.12);
+}
+.sch-card-name  { display: block; font-size: 19px; font-weight: 800; color: var(--text); margin-bottom: .5rem; }
+.sch-card-instr { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+.sch-card-featured {
+  background: linear-gradient(180deg, rgba(13,110,253,.05) 0%, var(--white) 45%);
+  border: 2px solid var(--accent);
+}
+.sch-card-tag {
+  display: inline-block;
+  background: var(--accent); color: #FFFFFF;
+  font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px;
+  margin-bottom: .85rem;
+}
 
 .sch-cta {
-  display: inline-flex; align-items: center; gap: 8px; margin-top: 2rem;
-  font-size: 16px; font-weight: 500; color: var(--accent); transition: gap .2s;
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 2.5rem;
+  font-size: 16px; font-weight: 700; color: var(--accent); transition: gap .2s;
 }
 .sch-cta:hover { gap: 12px; }
 
-.sch-subhead { display: block; margin: 2.5rem 0 1rem; }
-.sch-subhead:first-of-type { margin-top: 0; }
-.sch-note { margin-top: 1.5rem; font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 640px; }
+.sch-note { margin: 2.5rem auto 0; text-align: center; font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 640px; }
 
 /* ══════════════════════════════════════════
    6. WHY US
@@ -671,6 +684,9 @@ html { overflow-x: hidden; }
   /* courses: 2-up between mobile (≤768) and full desktop (>1024) */
   .c-card { flex: 0 0 calc((100% - 2rem) / 2); }
   .c-desc { -webkit-line-clamp: 2; }
+
+  /* schedule: 4 pricing cards get cramped before the mobile breakpoint */
+  .sch-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── Mobile 768px ──────────────────────── */
@@ -743,10 +759,9 @@ html { overflow-x: hidden; }
   .c-link             { font-size: 15px; }
 
   /* — schedule — */
-  .sch-item  { flex-wrap: wrap; gap: .5rem; padding: .9rem .5rem; }
-  .sch-arrow { display: none; }
-  .sch-name  { font-size: 16px; }
-  .sch-time, .sch-start { font-size: 14px; }
+  .sch-grid-3, .sch-grid-4 { grid-template-columns: 1fr; }
+  .sch-card      { padding: 1.5rem; }
+  .sch-card-name { font-size: 17px; }
 
   /* — why — */
   .why-img { height: 220px; }
@@ -820,9 +835,7 @@ html { overflow-x: hidden; }
   .c-body    { padding: 1rem; }
 
   /* — schedule — */
-  .sch-name  { font-size: 15px; }
-  .sch-time, .sch-start { font-size: 13px; }
-  .sch-item  { padding: .75rem .25rem; }
+  .sch-card-name { font-size: 16px; }
 
   /* — why — */
   .adv-n { font-size: 30px; flex-basis: 34px; }
