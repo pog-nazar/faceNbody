@@ -8,6 +8,7 @@ window.addEventListener('scroll', () => {
 const ham      = document.getElementById('hamburger');
 const overlay  = document.getElementById('navOverlay');
 const navClose = document.getElementById('navClose');
+const fabCall  = document.getElementById('fabCall');
 
 function openNav() {
   ham.classList.add('open');
@@ -15,6 +16,8 @@ function openNav() {
   overlay.classList.add('open');
   overlay.inert = false;
   document.body.style.overflow = 'hidden';
+  fabCall && fabCall.classList.add('hidden');
+  closeCallPopup();
 }
 function closeNav() {
   ham.classList.remove('open');
@@ -22,11 +25,44 @@ function closeNav() {
   overlay.classList.remove('open');
   overlay.inert = true;
   document.body.style.overflow = '';
+  fabCall && fabCall.classList.remove('hidden');
 }
 
 ham.addEventListener('click', () => overlay.classList.contains('open') ? closeNav() : openNav());
 navClose.addEventListener('click', closeNav);
 overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+/* ── FLOATING CALL BUTTON ─────────────────── */
+const callPopup      = document.getElementById('callPopup');
+const callPopupClose = document.getElementById('callPopupClose');
+const callPopupForm  = document.getElementById('callPopupForm');
+
+function openCallPopup() {
+  if (!callPopup) return;
+  callPopup.classList.add('open');
+  callPopup.inert = false;
+  fabCall && fabCall.setAttribute('aria-expanded', 'true');
+}
+function closeCallPopup() {
+  if (!callPopup) return;
+  callPopup.classList.remove('open');
+  callPopup.inert = true;
+  fabCall && fabCall.setAttribute('aria-expanded', 'false');
+}
+
+if (fabCall && callPopup) {
+  fabCall.addEventListener('click', () => callPopup.classList.contains('open') ? closeCallPopup() : openCallPopup());
+  callPopupClose && callPopupClose.addEventListener('click', closeCallPopup);
+
+  document.addEventListener('click', (e) => {
+    if (!callPopup.classList.contains('open')) return;
+    if (callPopup.contains(e.target) || fabCall.contains(e.target)) return;
+    closeCallPopup();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && callPopup.classList.contains('open')) closeCallPopup();
+  });
+}
 
 /* ── SCROLL REVEAL ───────────────────────── */
 const revealObs = new IntersectionObserver((entries) => {
@@ -139,6 +175,15 @@ if (enrollForm) {
   enrollForm.addEventListener('submit', (e) => {
     e.preventDefault();
     enrollForm.reset();
+    showToast();
+  });
+}
+
+if (callPopupForm) {
+  callPopupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    callPopupForm.reset();
+    closeCallPopup();
     showToast();
   });
 }
