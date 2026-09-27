@@ -678,6 +678,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 .enroll-text {
   font-size: 19px;
+  font-weight: 700;
   color: var(--muted);
   line-height: 1.8;
   margin-top: 1.75rem;
@@ -685,28 +686,12 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   max-width: 420px;
 }
 
-/* contacts + "what you need to start" side by side, left-aligned — this
-   keeps the (now much shorter, text-only) form from stranding a tall gap
-   underneath it in the column next to it; single column again below
-   540px where two columns get too tight */
-.enroll-side-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; text-align: left; margin-top: 1.75rem; }
-.enroll-contacts  { align-items: flex-start; }
-.enroll-msg-note  { margin: .85rem 0 0; max-width: none; }
-.enroll-prep      { display: flex; flex-direction: column; align-items: flex-start; margin-top: 0; }
-.enroll-prep-list { text-align: left; }
-@media (max-width: 540px) {
-  .enroll-side-cols { grid-template-columns: 1fr; gap: 0; text-align: center; }
-  .enroll-contacts  { align-items: center; }
-  .enroll-msg-note  { margin: .85rem auto 0; max-width: 400px; }
-  .enroll-prep      { align-items: center; margin-top: 1.75rem; }
-}
-
-.enroll-contacts { display: flex; flex-direction: column; gap: 1rem; }
+.enroll-contacts { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
 
 .enroll-contact-link {
   display: flex; align-items: center; gap: 12px;
   padding: 4px 0;
-  font-size: 16px; color: var(--muted);
+  font-size: 16px; font-weight: 700; color: var(--muted);
   transition: color .2s;
 }
 .enroll-contact-link:hover, .enroll-contact-link:active { color: var(--accent); }
@@ -720,13 +705,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .enroll-contact-link:hover .enroll-contact-icon { border-color: var(--accent); }
 
-.enroll-msg-note { font-size: 15px; color: var(--muted); line-height: 1.6; margin-top: .85rem; max-width: 400px; }
-
-.enroll-prep { margin-top: 2.25rem; }
-.enroll-prep-title { font-size: 14px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .85rem; }
-.enroll-prep-list { list-style: decimal; padding-left: 1.15rem; display: flex; flex-direction: column; gap: .6rem; max-width: 420px; }
-.enroll-prep-list li { font-size: 16px; color: var(--muted); line-height: 1.6; }
-.enroll-prep-list strong { color: var(--text); }
+.enroll-msg-note { font-size: 15px; font-weight: 700; color: var(--muted); line-height: 1.6; margin-top: .85rem; max-width: 400px; }
 
 /* Form card */
 .enroll-form-wrap {
