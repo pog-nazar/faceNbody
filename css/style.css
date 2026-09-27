@@ -807,6 +807,8 @@ html { overflow-x: hidden; }
   /* enroll */
   .enroll-info      { text-align: center; }
   .enroll-text      { margin-left: auto; margin-right: auto; }
+  .enroll-contacts  { align-items: center; }
+  .enroll-msg-note  { margin-left: auto; margin-right: auto; }
 }
 
 /* ── Tablet 1024px (layout) ─────────────── */
