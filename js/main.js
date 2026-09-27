@@ -11,13 +11,13 @@ const navClose = document.getElementById('navClose');
 const fabCall  = document.getElementById('fabCall');
 
 function openNav() {
-  closeCallPopup();
   ham.classList.add('open');
   ham.setAttribute('aria-expanded', 'true');
   overlay.classList.add('open');
   overlay.inert = false;
   document.body.style.overflow = 'hidden';
   fabCall && fabCall.classList.add('hidden');
+  closeCallPopup();
 }
 function closeNav() {
   ham.classList.remove('open');
@@ -41,14 +41,12 @@ function openCallPopup() {
   if (!callPopup) return;
   callPopup.classList.add('open');
   callPopup.inert = false;
-  document.body.style.overflow = 'hidden';
   fabCall && fabCall.setAttribute('aria-expanded', 'true');
 }
 function closeCallPopup() {
   if (!callPopup) return;
   callPopup.classList.remove('open');
   callPopup.inert = true;
-  document.body.style.overflow = '';
   fabCall && fabCall.setAttribute('aria-expanded', 'false');
 }
 
@@ -56,19 +54,15 @@ if (fabCall && callPopup) {
   fabCall.addEventListener('click', () => callPopup.classList.contains('open') ? closeCallPopup() : openCallPopup());
   callPopupClose && callPopupClose.addEventListener('click', closeCallPopup);
 
-  /* #callPopup is the full-screen backdrop — a click that lands directly
-     on it (not bubbled up from the card inside) means "outside the card" */
-  callPopup.addEventListener('click', (e) => {
-    if (e.target === callPopup) closeCallPopup();
+  document.addEventListener('click', (e) => {
+    if (!callPopup.classList.contains('open')) return;
+    if (callPopup.contains(e.target) || fabCall.contains(e.target)) return;
+    closeCallPopup();
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && callPopup.classList.contains('open')) closeCallPopup();
   });
 }
-
-/* mid-page CTA opens the very same popup */
-const midCtaBtn = document.getElementById('midCtaBtn');
-midCtaBtn && midCtaBtn.addEventListener('click', openCallPopup);
 
 /* ── SCROLL REVEAL ───────────────────────── */
 const revealObs = new IntersectionObserver((entries) => {
