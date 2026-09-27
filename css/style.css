@@ -573,6 +573,21 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .adv-p { font-size: 17px; color: var(--muted); line-height: 1.7; }
 
 /* ══════════════════════════════════════════
+   MID-PAGE CALL CTA
+══════════════════════════════════════════ */
+#mid-cta { padding: 0 0 4.5rem; }
+.mid-cta-box {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(13,110,253,.07) 0%, rgba(13,110,253,.03) 100%);
+  border: 1px solid rgba(13,110,253,.25);
+  border-radius: var(--r-md);
+  padding: 2.25rem 2.5rem;
+}
+.mid-cta-title { font-size: clamp(1.3rem, 2.4vw, 1.6rem); font-weight: 800; color: var(--text); margin-bottom: .35rem; }
+.mid-cta-text  { font-size: 18px; color: var(--muted); }
+
+/* ══════════════════════════════════════════
    7. TESTIMONIALS
 ══════════════════════════════════════════ */
 #testimonials { padding: 7.5rem 0; background: var(--surface); }
@@ -677,40 +692,26 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 
 .enroll-text {
-  font-size: 19px;
+  font-size: 21px;
   color: var(--muted);
-  line-height: 1.8;
+  line-height: 1.7;
   margin-top: 1.75rem;
-  margin-bottom: 2.5rem;
-  max-width: 360px;
+  margin-bottom: 1.75rem;
+  max-width: 420px;
 }
 
-.enroll-contacts { display: flex; flex-direction: column; gap: 1rem; }
-
-.enroll-contact-link {
-  display: flex; align-items: center; gap: 12px;
-  padding: 4px 0;
-  font-size: 16px; color: var(--muted);
+.enroll-phone-big {
+  display: inline-flex; align-items: center; gap: .65rem;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -.01em;
+  color: var(--accent);
   transition: color .2s;
 }
-.enroll-contact-link:hover, .enroll-contact-link:active { color: var(--accent); }
+.enroll-phone-big:hover, .enroll-phone-big:active { color: var(--accent-dim); }
+.enroll-phone-big svg { flex-shrink: 0; }
 
-.enroll-contact-icon {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--accent); flex-shrink: 0;
-  transition: border-color .2s;
-}
-.enroll-contact-link:hover .enroll-contact-icon { border-color: var(--accent); }
-
-.enroll-msg-note { font-size: 15px; color: var(--muted); line-height: 1.6; margin-top: .85rem; max-width: 400px; }
-
-.enroll-prep { margin-top: 2.25rem; }
-.enroll-prep-title { font-size: 14px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .85rem; }
-.enroll-prep-list { list-style: decimal; padding-left: 1.15rem; display: flex; flex-direction: column; gap: .6rem; max-width: 420px; }
-.enroll-prep-list li { font-size: 16px; color: var(--muted); line-height: 1.6; }
-.enroll-prep-list strong { color: var(--text); }
+.enroll-msg-note { font-size: 18px; color: var(--muted); line-height: 1.5; margin-top: .85rem; }
 
 /* Form card */
 .enroll-form-wrap {
@@ -812,24 +813,7 @@ html { overflow-x: hidden; }
   /* enroll */
   .enroll-info      { text-align: center; }
   .enroll-text      { margin-left: auto; margin-right: auto; }
-
-  /* contacts + "what you need to start" sit side by side, left-aligned,
-     on tablet/laptop (≤1024px, incl. 768px) — reverted to a single
-     centered column again below 540px where two columns get too tight */
-  .enroll-side-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; text-align: left; margin-top: 1.75rem; }
-  .enroll-contacts  { align-items: flex-start; }
-  .enroll-msg-note  { margin: .85rem 0 0; max-width: none; }
-  .enroll-prep      { display: flex; flex-direction: column; align-items: flex-start; margin-top: 0; }
-  .enroll-prep-list { text-align: left; }
-
-}
-
-/* too narrow for the enroll side-by-side columns above — back to one, centered */
-@media (max-width: 540px) {
-  .enroll-side-cols { grid-template-columns: 1fr; gap: 0; text-align: center; }
-  .enroll-contacts  { align-items: center; }
-  .enroll-msg-note  { margin: .85rem auto 0; max-width: 400px; }
-  .enroll-prep      { align-items: center; margin-top: 1.75rem; }
+  .enroll-phone-big { justify-content: center; }
 }
 
 /* ── Tablet 1024px (layout) ─────────────── */
@@ -899,6 +883,10 @@ html { overflow-x: hidden; }
   .stat-val { font-size: 2.3rem; }
   .stat-lbl { font-size: 16px; }
 
+  /* — mid-cta — */
+  .mid-cta-box { flex-direction: column; text-align: center; padding: 1.75rem; }
+  .mid-cta-box .btn { width: 100%; justify-content: center; }
+
   /* — trust — */
   .trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .trust-item  { justify-content: center; }
@@ -942,7 +930,7 @@ html { overflow-x: hidden; }
   .enroll-grid          { grid-template-columns: 1fr; gap: 2rem; }
   .enroll-text          { font-size: 18px; margin-top: 1rem; margin-bottom: 1.5rem; max-width: 100%; }
   .enroll-form-wrap     { padding: 1.5rem; }
-  .enroll-contact-link  { font-size: 17px; }
+  .enroll-phone-big     { font-size: clamp(1.6rem, 6vw, 2.2rem); }
   .form-input           { font-size: 18px; padding: 13px 14px; }
   .form-label           { font-size: 14px; }
 
@@ -1010,7 +998,6 @@ html { overflow-x: hidden; }
   /* — form — */
   .form-row         { grid-template-columns: 1fr; }
   .enroll-form-wrap { padding: 1.25rem; }
-  .enroll-contacts  { gap: .75rem; }
   .form-input       { font-size: 17px; padding: 12px 13px; }
 
   /* — footer — */

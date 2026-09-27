@@ -64,6 +64,10 @@ if (fabCall && callPopup) {
   });
 }
 
+/* mid-page CTA opens the very same popup */
+const midCtaBtn = document.getElementById('midCtaBtn');
+midCtaBtn && midCtaBtn.addEventListener('click', openCallPopup);
+
 /* ── SCROLL REVEAL ───────────────────────── */
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
