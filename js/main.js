@@ -1,3 +1,29 @@
+/* ── LEADS ENDPOINT ─────────────────────────
+   URL of the deployed Google Apps Script web app (see gas/README.md for
+   setup — takes ~10 min, all under your own Google account, the client
+   never touches this). Until it's set to a real https://script.google.com
+   URL, forms fall back to the old "just show the toast" behavior so the
+   site doesn't visibly break during development. */
+const LEADS_ENDPOINT = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+function leadsConfigured() {
+  return /^https:\/\/script\.google(usercontent)?\.com\//.test(LEADS_ENDPOINT);
+}
+
+/**
+ * Sends { name, phone } to the Apps Script web app as
+ * application/x-www-form-urlencoded (what e.parameter expects server-side).
+ * Apps Script web apps don't send CORS headers a fetch() can read, so this
+ * uses mode:'no-cors' — we can't inspect the HTTP response, only whether
+ * the request left the browser at all. A resolved promise means "sent",
+ * not "confirmed delivered"; a rejected one means a real network failure
+ * (offline, DNS, blocked) and is the only case worth telling the user about.
+ */
+function sendLead(data, source) {
+  const body = new URLSearchParams({ ...data, source });
+  return fetch(LEADS_ENDPOINT, { method: 'POST', mode: 'no-cors', body });
+}
+
 /* ── HEADER SCROLL ───────────────────────── */
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
@@ -151,10 +177,18 @@ document.querySelectorAll('.reveal, .reveal-r, .section-hdr').forEach(el => reve
 /* ── TOAST ───────────────────────────────── */
 const toast      = document.getElementById('toast');
 const toastClose = document.getElementById('toastClose');
+const toastIcon  = toast && toast.querySelector('.toast-icon');
+const toastTitleEl = toast && toast.querySelector('.toast-title');
+const toastTextEl  = toast && toast.querySelector('.toast-text');
 let toastTimer;
 
-function showToast() {
+function showToast(opts) {
   if (!toast) return;
+  const { title, text, isError } = opts || {};
+  if (toastTitleEl && title) toastTitleEl.textContent = title;
+  if (toastTextEl && text)   toastTextEl.textContent = text;
+  if (toastIcon) toastIcon.textContent = isError ? '!' : '✓';
+  toast.classList.toggle('toast-error', !!isError);
   toast.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(hideToast, 5000);
@@ -170,23 +204,43 @@ toastClose && toastClose.addEventListener('click', () => {
 });
 
 /* ── FORM SUBMIT ─────────────────────────── */
-const enrollForm = document.getElementById('enrollForm');
-if (enrollForm) {
-  enrollForm.addEventListener('submit', (e) => {
+function handleLeadForm(form, source, onSuccess) {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    enrollForm.reset();
-    showToast();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const data = { name: form.name.value.trim(), phone: form.phone.value.trim() };
+
+    if (!leadsConfigured()) {
+      // Not wired up yet — keep the old "just show success" behavior so
+      // the site doesn't look broken while gas/README.md is still pending.
+      form.reset();
+      onSuccess && onSuccess();
+      showToast();
+      return;
+    }
+
+    if (submitBtn) submitBtn.disabled = true;
+    sendLead(data, source)
+      .then(() => {
+        form.reset();
+        onSuccess && onSuccess();
+        showToast();
+      })
+      .catch(() => {
+        showToast({
+          title: 'Не вдалося надіслати',
+          text: 'Перевірте інтернет-з’єднання і спробуйте ще раз, або зателефонуйте нам напряму.',
+          isError: true,
+        });
+      })
+      .finally(() => { if (submitBtn) submitBtn.disabled = false; });
   });
 }
 
-if (callPopupForm) {
-  callPopupForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    callPopupForm.reset();
-    closeCallPopup();
-    showToast();
-  });
-}
+const enrollForm = document.getElementById('enrollForm');
+if (enrollForm) handleLeadForm(enrollForm, 'Форма запису на сайті');
+
+if (callPopupForm) handleLeadForm(callPopupForm, 'Попап "Замовити дзвінок"', closeCallPopup);
 
 /* ── PARTICLES ───────────────────────────── */
 (function () {

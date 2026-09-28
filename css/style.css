@@ -5,6 +5,7 @@
   --border:      #CBD5E0;
   --accent:      #0D6EFD;
   --accent-dim:  #0B5ED7;
+  --danger:      #E53E3E;
   --text:        #1A202C;
   --muted:       #4A5568;
   --white:       #FFFFFF;
@@ -75,6 +76,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .btn-dark { background: var(--text); color: #FFFFFF; border: 1px solid var(--text); }
 .btn-dark:hover { background: #2D3748; transform: translateY(-1px); }
 .btn-dark:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+.btn:disabled { opacity: .55; cursor: default; pointer-events: none; }
 
 .btn-sm  { padding: 11px 22px; font-size: 16px; }
 .btn-lg  { padding: 20px 42px; font-size: 19px; }
@@ -1202,6 +1205,13 @@ html { overflow-x: hidden; }
   color: var(--accent);
   font-size: 19px;
   display: flex; align-items: center; justify-content: center;
+}
+
+.toast.toast-error { border-left-color: var(--danger); }
+.toast.toast-error .toast-icon {
+  background: rgba(229,62,62,.12);
+  border-color: rgba(229,62,62,.35);
+  color: var(--danger);
 }
 
 .toast-body { flex: 1; min-width: 0; }
