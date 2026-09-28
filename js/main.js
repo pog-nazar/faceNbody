@@ -4,7 +4,7 @@
    never touches this). Until it's set to a real https://script.google.com
    URL, forms fall back to the old "just show the toast" behavior so the
    site doesn't visibly break during development. */
-const LEADS_ENDPOINT = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxmCyNMmYbkuzZEuXiQHH8WnRzvi3Hg7VzwkyT6oiQQU0yDh3FkK0W9WcyKFEgzSQlY/exec';
 
 function leadsConfigured() {
   return /^https:\/\/script\.google(usercontent)?\.com\//.test(LEADS_ENDPOINT);

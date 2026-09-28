@@ -64,6 +64,11 @@ function sendTelegramMessage(token, chatId, name, phone, source) {
   }
 }
 
+function jsonOutput(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 /**
  * Запустіть цю функцію вручну один раз (Run → testTelegram) одразу після
  * того, як заповните BOT_TOKEN і CHAT_ID у Script Properties — щоб
