@@ -182,11 +182,10 @@ const toastTitleEl = toast && toast.querySelector('.toast-title');
 const toastTextEl  = toast && toast.querySelector('.toast-text');
 let toastTimer;
 
-function showToast(opts) {
+function showToast(isError = false) {
   if (!toast) return;
-  const { title, text, isError } = opts || {};
-  if (toastTitleEl && title) toastTitleEl.textContent = title;
-  if (toastTextEl && text)   toastTextEl.textContent = text;
+  toastTitleEl.textContent = i18n.t(isError ? 'toast.errTitle' : 'toast.okTitle');
+  toastTextEl.textContent  = i18n.t(isError ? 'toast.errText' : 'toast.okText');
   if (toastIcon) toastIcon.textContent = isError ? '!' : '✓';
   toast.classList.toggle('toast-error', !!isError);
   toast.classList.add('show');
@@ -207,8 +206,11 @@ toastClose && toastClose.addEventListener('click', () => {
 function handleLeadForm(form, source, onSuccess) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
     const data = { name: form.name.value.trim(), phone: form.phone.value.trim() };
+    form.name.value = data.name;
+    form.phone.value = data.phone;
+    if (!form.reportValidity()) return;
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     if (!leadsConfigured()) {
       // Not wired up yet — keep the old "just show success" behavior so
@@ -226,13 +228,7 @@ function handleLeadForm(form, source, onSuccess) {
         onSuccess && onSuccess();
         showToast();
       })
-      .catch(() => {
-        showToast({
-          title: 'Не вдалося надіслати',
-          text: 'Перевірте інтернет-з’єднання і спробуйте ще раз, або зателефонуйте нам напряму.',
-          isError: true,
-        });
-      })
+      .catch(() => showToast(true))
       .finally(() => { if (submitBtn) submitBtn.disabled = false; });
   });
 }
@@ -288,15 +284,21 @@ if (callPopupForm) handleLeadForm(callPopupForm, 'Попап "Замовити �
 
 /* ── CARD EXPAND ────────────────────────── */
 (function () {
+  function setLabel(desc, btn) {
+    btn.textContent = i18n.t(desc.classList.contains('c-desc-expanded') ? 'more.close' : 'more.open');
+  }
+
+  const pairs = [];
   document.querySelectorAll('.c-desc').forEach(desc => {
     const btn = document.createElement('button');
     btn.className = 'c-expand hidden';
-    btn.textContent = 'Читати більше ↓';
+    setLabel(desc, btn);
     desc.after(btn);
+    pairs.push([desc, btn]);
 
     btn.addEventListener('click', () => {
-      const expanded = desc.classList.toggle('c-desc-expanded');
-      btn.textContent = expanded ? 'Згорнути ↑' : 'Читати більше ↓';
+      desc.classList.toggle('c-desc-expanded');
+      setLabel(desc, btn);
     });
   });
 
@@ -312,6 +314,12 @@ if (callPopupForm) handleLeadForm(callPopupForm, 'Попап "Замовити �
   window.addEventListener('load', checkExpand);
   window.addEventListener('resize', checkExpand);
   setTimeout(checkExpand, 150);
+
+  // descriptions change length with the language, so "read more" may appear or vanish
+  document.addEventListener('langchange', () => {
+    pairs.forEach(([desc, btn]) => setLabel(desc, btn));
+    checkExpand();
+  });
 }());
 
 /* ── REDUCED MOTION ──────────────────────── */
