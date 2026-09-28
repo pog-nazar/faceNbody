@@ -686,7 +686,18 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   max-width: 420px;
 }
 
-.enroll-contacts { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+/* contacts + the Viber/Telegram note sit in one row (contacts keep their
+   natural width, the note grows to fill whatever's left) at every width
+   down to ~480px, where flex-wrap drops the note to its own line */
+.enroll-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.25rem 2.5rem;
+  margin-top: 1.75rem;
+}
+
+.enroll-contacts { display: flex; flex-direction: column; gap: 1rem; flex-shrink: 0; }
 
 .enroll-contact-link {
   display: flex; align-items: center; gap: 12px;
@@ -705,7 +716,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .enroll-contact-link:hover .enroll-contact-icon { border-color: var(--accent); }
 
-.enroll-msg-note { font-size: 15px; font-weight: 700; color: var(--muted); line-height: 1.6; margin-top: .85rem; max-width: 400px; }
+.enroll-msg-note { font-size: 15px; font-weight: 700; color: var(--muted); line-height: 1.6; flex: 1 1 240px; }
 
 /* Form card */
 .enroll-form-wrap {
@@ -805,10 +816,11 @@ html { overflow-x: hidden; }
   .adv-t, .adv-p { text-align: left; }
 
   /* enroll */
-  .enroll-info      { text-align: center; }
-  .enroll-text      { margin-left: auto; margin-right: auto; }
-  .enroll-contacts  { align-items: center; }
-  .enroll-msg-note  { margin-left: auto; margin-right: auto; }
+  .enroll-info       { text-align: center; }
+  .enroll-text       { margin-left: auto; margin-right: auto; }
+  .enroll-contact-row { justify-content: center; }
+  .enroll-contacts   { align-items: center; }
+  .enroll-msg-note   { text-align: left; }
 }
 
 /* ── Tablet 1024px (layout) ─────────────── */
