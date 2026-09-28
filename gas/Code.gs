@@ -1,6 +1,6 @@
 /**
- * Приймає заявки з сайту (POST, application/x-www-form-urlencoded),
- * пише їх у аркуш "Ліди" цієї ж таблиці і шле повідомлення в Telegram.
+ * Приймає заявки з сайту (POST, application/x-www-form-urlencoded)
+ * і пересилає їх у Telegram. Ніяких Google Таблиць — тільки Telegram.
  *
  * Налаштування — Project Settings → Script Properties (НЕ тут у коді):
  *   BOT_TOKEN   токен бота від @BotFather
@@ -26,13 +26,11 @@ function doPost(e) {
     if (!name || !phone) {
       return jsonOutput({ ok: false, error: 'missing name/phone' });
     }
-
-    logToSheet(name, phone, source);
-
-    if (token && chatId) {
-      sendTelegramMessage(token, chatId, name, phone, source);
+    if (!token || !chatId) {
+      return jsonOutput({ ok: false, error: 'BOT_TOKEN/CHAT_ID not set in Script Properties' });
     }
 
+    sendTelegramMessage(token, chatId, name, phone, source);
     return jsonOutput({ ok: true });
   } catch (err) {
     return jsonOutput({ ok: false, error: String(err) });
@@ -42,17 +40,6 @@ function doPost(e) {
 /** So opening the deployment URL in a browser shows something sane. */
 function doGet() {
   return jsonOutput({ ok: true, info: 'This endpoint only accepts POST from the site’s lead forms.' });
-}
-
-function logToSheet(name, phone, source) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName('Ліди');
-  if (!sheet) {
-    sheet = ss.insertSheet('Ліди');
-    sheet.appendRow(['Дата', "Ім'я", 'Телефон', 'Джерело']);
-    sheet.setFrozenRows(1);
-  }
-  sheet.appendRow([new Date(), name, phone, source]);
 }
 
 function sendTelegramMessage(token, chatId, name, phone, source) {
@@ -69,18 +56,12 @@ function sendTelegramMessage(token, chatId, name, phone, source) {
     payload: JSON.stringify({ chat_id: chatId, text: text }),
     muteHttpExceptions: true,
   });
-  // Якщо Telegram поверне помилку (наприклад, невірний CHAT_ID), лишимо
-  // слід у логах виконання скрипта (Executions), щоб було що дебажити —
-  // але не валимо весь запит, бо заявка вже безпечно лежить у таблиці.
   var code = res.getResponseCode();
   if (code !== 200) {
+    // Лишаємо слід у логах виконання (Executions), якщо Telegram раптом
+    // відповість помилкою — наприклад, невірний CHAT_ID.
     console.error('Telegram sendMessage failed: ' + code + ' ' + res.getContentText());
   }
-}
-
-function jsonOutput(obj) {
-  return ContentService.createTextOutput(JSON.stringify(obj))
-    .setMimeType(ContentService.MimeType.JSON);
 }
 
 /**
