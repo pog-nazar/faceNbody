@@ -44,10 +44,8 @@ function doGet() {
 
 function sendTelegramMessage(token, chatId, name, phone, source) {
   var text =
-    '🆕 Нова заявка з сайту\n\n' +
     "👤 Ім'я: " + name + '\n' +
-    '📞 Телефон: ' + phone + '\n' +
-    '📍 Джерело: ' + source;
+    '📞 Телефон: ' + phone;
 
   var url = 'https://api.telegram.org/bot' + token + '/sendMessage';
   var res = UrlFetchApp.fetch(url, {
