@@ -614,14 +614,16 @@
 </button>
 
 <div class="call-popup" id="callPopup" role="dialog" aria-modal="true" aria-label="Замовити дзвінок" data-i18n-aria-label="call.open" inert>
-  <button class="call-popup-close" id="callPopupClose" type="button" aria-label="Закрити" data-i18n-aria-label="ui.close">✕</button>
-  <p class="call-popup-title" data-i18n="call.title">Замовте дзвінок</p>
-  <p class="call-popup-text" data-i18n="call.text">Залиште ім'я та номер — передзвонимо, навіть якщо зараз пізно чи лінія зайнята.</p>
-  <form class="call-popup-form" id="callPopupForm" novalidate>
-    <input class="form-input" id="cp-name" name="name" type="text" placeholder="Ваше ім'я" data-i18n-placeholder="call.namePh" required />
-    <input class="form-input" id="cp-phone" name="phone" type="tel" placeholder="+380 __ ___ __ __" data-i18n-placeholder="form.phonePh" required />
-    <button type="submit" class="btn btn-primary call-popup-submit" data-i18n="call.submit">Чекаю на дзвінок</button>
-  </form>
+  <div class="call-popup-card">
+    <button class="call-popup-close" id="callPopupClose" type="button" aria-label="Закрити" data-i18n-aria-label="ui.close">✕</button>
+    <p class="call-popup-title" data-i18n="call.title">Замовте дзвінок</p>
+    <p class="call-popup-text" data-i18n="call.text">Залиште ім'я та номер — передзвонимо, навіть якщо зараз пізно чи лінія зайнята.</p>
+    <form class="call-popup-form" id="callPopupForm" novalidate>
+      <input class="form-input" id="cp-name" name="name" type="text" placeholder="Ваше ім'я" data-i18n-placeholder="call.namePh" required />
+      <input class="form-input" id="cp-phone" name="phone" type="tel" placeholder="+380 __ ___ __ __" data-i18n-placeholder="form.phonePh" required />
+      <button type="submit" class="btn btn-primary call-popup-submit" data-i18n="call.submit">Чекаю на дзвінок</button>
+    </form>
+  </div>
 </div>
 
 <!-- ═══ ТОСТ-ПОВІДОМЛЕННЯ ══════════════════════ -->
