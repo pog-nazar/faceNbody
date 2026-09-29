@@ -21,8 +21,8 @@ const i18n = (function () {
     en: {
       'meta.title': 'Face & Body Massage Courses — Professional Massage Training',
       'meta.desc': 'Face and body massage courses — diploma programs, an international certificate and help finding a job.',
-      'logo.main': 'Massage courses',
-      'logo.sub': ' for face & body',
+      'logo.main': 'Rehab Massage Therapist',
+      'logo.sub': 'Massage Therapist Courses',
       'lang.label': 'Site language',
       'nav.label': 'Main navigation',
       'nav.courses': 'Courses',
@@ -182,8 +182,8 @@ const i18n = (function () {
     pl: {
       'meta.title': 'Kursy masażu twarzy i ciała — profesjonalne szkolenia z masażu',
       'meta.desc': 'Kursy masażu twarzy i ciała — kursy z dyplomem, międzynarodowy certyfikat i pomoc w znalezieniu pracy.',
-      'logo.main': 'Kursy masażu',
-      'logo.sub': ' twarzy i ciała',
+      'logo.main': 'Masażysta-rehabilitant',
+      'logo.sub': 'Kursy masażysty-rehabilitanta',
       'lang.label': 'Język strony',
       'nav.label': 'Nawigacja główna',
       'nav.courses': 'Kursy',
