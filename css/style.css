@@ -845,19 +845,14 @@ html { overflow-x: hidden; }
 
 /* ── Header: hamburger below 1200px ────────── */
 @media (max-width: 1200px) {
-  /* logo + 4 links + language switcher + outline button stop fitting
-     below ~1200px (EN is the widest) — switch to the hamburger here */
+  /* the 4 nav links stop fitting below ~1200px (EN is the widest) —
+     drop them into the hamburger menu, but keep the language switcher
+     and the enroll button visible in the header itself (client wants
+     both reachable without opening the menu) */
   .nav-desk            { display: none; }
-  .header-inner > .btn { display: none; }
   .hamburger           { display: flex; margin-left: 0; }
   .header-inner > .lang-switch { margin-left: auto; }
 }
-/* phones: logo + switcher + hamburger don't fit — the switcher lives in the menu overlay only */
-@media (max-width: 600px) {
-  .header-inner > .lang-switch { display: none; }
-  .hamburger { margin-left: auto; }
-}
-
 /* ── Tablet 1024px (layout) ─────────────── */
 @media (max-width: 1024px) {
   .why-grid      { grid-template-columns: 1fr; margin-top: 2rem; }
@@ -985,6 +980,26 @@ html { overflow-x: hidden; }
   .ring-12 { width: 240px; height: 240px; }
   .orb-1   { width: 300px; height: 300px; }
   .orb-2   { width: 260px; height: 260px; }
+}
+
+/* phones: shrink logo/switcher/button so all four still fit in one row —
+   tight budget (e.g. 390px screen − 40px container padding = 350px for
+   logo + lang switch + enroll button + hamburger) so every piece here
+   is trimmed down, not just the obvious ones. Must come after the
+   768px block above so it wins the cascade at ≤600px. */
+@media (max-width: 600px) {
+  .header-inner    { gap: .25rem; }
+  .logo            { font-size: 13px; letter-spacing: -.01em; }
+  .logo em         { display: none; }
+  .header-inner > .btn.btn-sm { padding: 7px 10px; font-size: 12px; letter-spacing: 0; }
+  .lang-switch     { gap: 0; }
+  .lang-btn        { min-width: 21px; height: 26px; padding: 0; font-size: 10px; }
+  .hamburger       { width: 30px; height: 30px; margin-left: 0; flex-shrink: 0; }
+  .hamburger span  { width: 18px; }
+}
+@media (max-width: 340px) {
+  .header-inner > .btn.btn-sm { padding: 6px 8px; font-size: 11px; }
+  .logo            { font-size: 12px; }
 }
 
 /* ── Small mobile 480px ────────────────── */
