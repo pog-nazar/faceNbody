@@ -279,6 +279,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .hero-awards { display: flex; gap: 18px; margin-bottom: 1.75rem; }
 .hero-awards img {
   width: 128px; height: 128px;
+  border-radius: 50%;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,.12));
 }
 
