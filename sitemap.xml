@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://face-body-studio.netlify.app/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://face-body-studio.netlify.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://face-body-studio.netlify.app/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://face-body-studio.netlify.app/?lang=pl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://face-body-studio.netlify.app/" />
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
