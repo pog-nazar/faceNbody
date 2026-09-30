@@ -652,15 +652,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .foot-logo .logo-sub  { font-size: 14px; }
 .foot-desc { font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 280px; margin-bottom: 1.5rem; }
 
-.social-row { display: flex; gap: 10px; }
-.soc-link {
-  width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); transition: border-color .2s, color .2s;
-}
-.soc-link:hover, .soc-link:active { border-color: var(--accent); color: var(--accent); }
-
 .foot-col-label { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
 .foot-links { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
 .foot-links a { font-size: 17px; color: var(--muted); transition: color .2s; }
@@ -686,7 +677,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 .foot-grid > div { text-align: center; }
 .foot-desc   { margin: 0 auto 1.5rem; }
-.social-row  { justify-content: center; }
 .foot-links  { align-items: center; }
 .contact-row { align-items: center; }
 
