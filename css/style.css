@@ -367,15 +367,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .hero-btns { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
 
-.hero-rating {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-bottom: 3rem;
-  transition: opacity .2s;
-}
-.hero-rating:hover { opacity: .8; }
-.hero-rating-stars { color: var(--accent); font-size: 18px; letter-spacing: 2px; }
-.hero-rating-label { font-size: 16px; font-weight: 700; color: var(--text); }
-
 .stats-row {
   display: flex; gap: 2.5rem;
   padding-top: 2rem;
