@@ -162,7 +162,7 @@ const i18n = (function () {
       'foot.address': 'Address',
       'foot.phone': 'Phone',
       'foot.email': 'Email',
-      'foot.addressVal': 'City, Street Name, 00',
+      'foot.addressVal': 'Kyiv, Darnytskyi district, Kharkivska metro, 6-A Vyshniakivska St.',
 
       'call.open': 'Request a call',
       'call.title': 'Request a call',
@@ -323,7 +323,7 @@ const i18n = (function () {
       'foot.address': 'Adres',
       'foot.phone': 'Telefon',
       'foot.email': 'E-mail',
-      'foot.addressVal': 'Miasto, ul. Nazwa, 00',
+      'foot.addressVal': 'Kijów, dzielnica Darnycki, metro Charkiwska, ul. Wyszniakiwska 6-A',
 
       'call.open': 'Zamów rozmowę',
       'call.title': 'Zamów rozmowę',
