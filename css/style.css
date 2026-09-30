@@ -276,9 +276,9 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .hero-pill span { font-size: 18px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 
-.hero-awards { display: flex; gap: 14px; margin-bottom: 1.5rem; }
+.hero-awards { display: flex; gap: 18px; margin-bottom: 1.75rem; }
 .hero-awards img {
-  width: 74px; height: 74px;
+  width: 128px; height: 128px;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,.12));
 }
 
@@ -1032,6 +1032,7 @@ html { overflow-x: hidden; }
   .hero-btns       { flex-direction: column; }
   .hero-btns .btn  { width: 100%; justify-content: center; }
   .hero-pill span  { font-size: 14px; letter-spacing: .05em; }
+  .hero-awards img { width: 96px; height: 96px; }
   .hero-salary     { padding: .65rem .85rem; margin-bottom: 1rem; }
   .hero-salary-val { font-size: 1.8rem; }
   .hero-salary-lbl { font-size: 17px; }
