@@ -371,8 +371,10 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 .hero-stars {
   color: var(--accent);
-  font-size: 38px;
-  letter-spacing: 8px;
+  font-size: clamp(24px, calc(6vw + 6px), 76px);
+  letter-spacing: clamp(2px, calc(1.4vw + 1px), 14px);
+  line-height: 1;
+  white-space: nowrap;
   margin-bottom: 1.5rem;
 }
 
