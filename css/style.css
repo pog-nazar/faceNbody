@@ -279,7 +279,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .hero-awards { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-bottom: 1.75rem; }
 .hero-awards-ico {
   display: block;
-  width: 144px; height: 144px;
+  width: 190px; height: 190px;
   border-radius: 50%;
   overflow: hidden;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,.12));
@@ -1094,7 +1094,7 @@ html { overflow-x: hidden; }
   .hero-btns       { flex-direction: column; }
   .hero-btns .btn  { width: 100%; min-width: 0; justify-content: center; }
   .hero-pill span  { font-size: 14px; letter-spacing: .05em; }
-  .hero-awards-ico { width: 108px; height: 108px; }
+  .hero-awards-ico { width: 140px; height: 140px; }
   .hero-awards-star { font-size: 90px; }
   .hero-salary     { padding: .65rem .85rem; margin-bottom: 1rem; }
   .hero-salary-val { font-size: 1.8rem; }
