@@ -279,7 +279,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .hero-awards { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-bottom: 1.75rem; }
 .hero-awards-ico {
   display: block;
-  width: 190px; height: 190px;
+  width: 144px; height: 144px;
   border-radius: 50%;
   overflow: hidden;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,.12));
