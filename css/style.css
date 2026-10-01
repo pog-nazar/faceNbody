@@ -276,7 +276,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .hero-pill span { font-size: 18px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 
-.hero-awards { display: flex; align-items: center; gap: 18px; margin-bottom: 1.75rem; }
+.hero-awards { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-bottom: 1.75rem; }
 .hero-awards-ico {
   display: block;
   width: 144px; height: 144px;
@@ -294,7 +294,7 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .hero-awards-star {
   color: #FFC107;
-  font-size: 30px;
+  font-size: 120px;
   line-height: 1;
   flex-shrink: 0;
 }
@@ -1074,7 +1074,7 @@ html { overflow-x: hidden; }
   .hero-btns .btn  { width: 100%; min-width: 0; justify-content: center; }
   .hero-pill span  { font-size: 14px; letter-spacing: .05em; }
   .hero-awards-ico { width: 108px; height: 108px; }
-  .hero-awards-star { font-size: 24px; }
+  .hero-awards-star { font-size: 90px; }
   .hero-salary     { padding: .65rem .85rem; margin-bottom: 1rem; }
   .hero-salary-val { font-size: 1.8rem; }
   .hero-salary-lbl { font-size: 17px; }
