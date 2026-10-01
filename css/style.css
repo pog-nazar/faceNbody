@@ -955,7 +955,7 @@ html { overflow-x: hidden; }
     padding: 0 14px;
     margin-bottom: 1.75rem;
   }
-  .hero-awards-stars-row .hero-awards-star { font-size: 56px; }
+  .hero-awards-stars-row .hero-awards-star { font-size: 84px; }
 
   /* — section padding — */
   #courses, #schedule, #why, #testimonials, #enroll { padding: 4rem 0; }
